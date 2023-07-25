@@ -6,22 +6,28 @@
 body {
     text-align: center;
     background: rgb(236, 202, 150);
+    height: auto;
     
 }
 
   /* LAYOUT*/
 
 section {
-    width: 80%;
+    height: 50rem;
     margin: 0 auto;
-    background: url('https://images.unsplash.com/photo-1613771404721-1f92d799e49f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80');
+    background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
+    background-position: center;
+    background-size: fill;
+    background-repeat: no-repeat;
 }
 
 input {
     margin: 4rem auto 0;
 }
+
 span {
     padding: 0 2rem;
+    color: white;
 }
 
 button {
@@ -33,6 +39,8 @@ button {
 
 div {
     height: 30rem;
+    width: 80%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,11 +49,15 @@ div {
 img {
     display: block;
     margin: 0 auto;
-    padding: 3rem 0;
-    width: 15rem;
+    width: 20rem;
     border-radius: 10px;
+    border: 1px solid rgb(236, 202, 150);
+    background: rgb(236, 202, 150);
 }
 
 h2 {
-    color: rgb(19, 232, 232);
+    color: rgb(0, 0, 0);
+    border: 1px solid white;
+    padding: 1rem;
+    background: white;
 }
