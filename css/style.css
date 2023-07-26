@@ -34,6 +34,7 @@ button {
     display: block;
     margin: 2rem auto 0;
     padding: 0.5rem 1rem;
+    background: rgb(236, 202, 150);
     border-radius: 16px;
 }
 
@@ -58,6 +59,7 @@ img {
 h2 {
     color: rgb(0, 0, 0);
     border: 1px solid white;
+    border-radius: 16px;
     padding: 1rem;
-    background: white;
+    background: rgb(236, 202, 150);;
 }
