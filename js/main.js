@@ -149,6 +149,36 @@ document.addEventListener('DOMContentLoaded', function() {
               document.querySelector('#pokeImg2').src = pokeImg[1];
               document.querySelector('h2').innerText = 'Normal damage - 100%';
 
+            
+            // Check if Pokemon is not very effective on other type
+          } else if(
+            (pokeStore[0] === 'normal' && (pokeStore[2] === 'rock' || pokeStore[2] === 'steel')) ||
+
+            (pokeStore[0] === 'electric' && pokeStore[2] === 'ground') ||
+            (pokeStore[0] === 'fighting' && pokeStore[2] === 'ghost') ||
+            (pokeStore[0] === 'poison' && pokeStore[2] === 'steel') ||
+            (pokeStore[0] === 'ground' && pokeStore[2] === 'flying') ||
+            (pokeStore[0] === 'psychic' && pokeStore[2] === 'dark') ||
+            (pokeStore[0] === 'ghost' && pokeStore[2] === 'normal') ||
+            (pokeStore[0] === 'dragon' && pokeStore[2] === 'fairy')
+          ) {
+            document.querySelector('#pokeImg1').src = pokeImg[0];
+            document.querySelector('#pokeImg2').src = pokeImg[1];
+            document.querySelector('h2').innerText = 'Not very effective - 25% -->';
+
+          } else if(
+            (pokeStore[0] === 'normal' && (pokeStore[1] === 'rock' || pokeStore[1] === 'steel')) ||
+
+            (pokeStore[0] === 'electric' && pokeStore[1] === 'ground') ||
+            (pokeStore[0] === 'fighting' && pokeStore[1] === 'ghost') ||
+            (pokeStore[0] === 'poison' && pokeStore[1] === 'steel') ||
+            (pokeStore[0] === 'ground' && pokeStore[1] === 'flying') ||
+            (pokeStore[0] === 'psychic' && pokeStore[1] === 'dark') ||
+            (pokeStore[0] === 'ghost' && pokeStore[1] === 'normal') ||
+            (pokeStore[0] === 'dragon' && pokeStore[1] === 'fairy')
+          ) {
+            document.querySelector('#pokeImg1').src = pokeImg[0];
+            document.querySelector('#pokeImg2').src = pokeImg[1];
             document.querySelector('h2').innerText = 'No effect - 0%';
 
             // Check if Pokemon has 2x effect on same type
