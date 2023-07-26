@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
               // Check if Pokemon are the same type
             } else if(
-              (pokeStore[0] === 'normal' && (pokeStore[2] === 'normal' || pokeStore[2] === 'fire' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'fighting'|| pokeStore[2] === 'poison' || pokeStore[2] === 'ground'|| pokeStore[2] === 'flying' || pokeStore[2] === 'psychic' || pokeStore[2] === 'bug' || pokeStore[2] === 'dragon'|| pokeStore[2] === 'dark' || pokeStore[2] === 'fairy')) ||
+              (pokeStore[0] === 'normal' && (pokeStore[2] === 'normal' || pokeStore[2] === 'fire' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'fighting'|| pokeStore[2] === 'poison' || pokeStore[2] === 'ground' || pokeStore[2] === 'flying' || pokeStore[2] === 'psychic' || pokeStore[2] === 'bug' || pokeStore[2] === 'dragon' || pokeStore[2] === 'dark' || pokeStore[2] === 'fairy')) ||
 
               (pokeStore[0] === 'fire' && (pokeStore[2] === 'normal' || pokeStore[2] === 'electric' || pokeStore[2] === 'ground' || pokeStore[2] === 'fighting' || pokeStore[2] === 'poison' || pokeStore[2] === 'flying' || pokeStore[2] === 'psychic' || pokeStore[2] === 'ghost' || pokeStore[2] === 'dark' || pokeStore[2] === 'fairy')) ||
 
@@ -107,21 +107,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
               (pokeStore[0] === 'ground' && (pokeStore[2] === 'normal' || pokeStore[2] === 'fire' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'fighting'|| pokeStore[2] === 'poison' || pokeStore[2] === 'ground'|| pokeStore[2] === 'flying' || pokeStore[2] === 'psychic' || pokeStore[2] === 'bug' || pokeStore[2] === 'dragon'|| pokeStore[2] === 'dark' || pokeStore[2] === 'fairy')) ||
 
+              (pokeStore[0] === 'flying' && (pokeStore[2] === 'normal' || pokeStore[2] === 'fire' || pokeStore[2] === 'water' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'poison' || pokeStore[2] === 'ground'|| pokeStore[2] === 'flying' || pokeStore[2] === 'psychic' || pokeStore[2] === 'ghost' || pokeStore[2] === 'dragon' || pokeStore[2] === 'dark' || pokeStore[2] === 'fairy')) ||
 
+              (pokeStore[0] === 'psychic' && (pokeStore[2] === 'normal' || pokeStore[2] === 'fire' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'ground' || pokeStore[2] === 'flying' || pokeStore[2] === 'bug' || pokeStore[2] === 'rock' || pokeStore[2] === 'ghost' || pokeStore[2] === 'dragon' || pokeStore[2] === 'fairy')) ||
 
-              
-           
+              (pokeStore[0] === 'bug' && (pokeStore[2] === 'normal' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' || pokeStore[2] === 'ice' || pokeStore[2] === 'ground' || pokeStore[2] === 'bug' || pokeStore[2] === 'rock' || pokeStore[2] === 'dragon')) ||
 
-              
-              // (pokeStore[0] === 'flying' && pokeStore[2] === 'flying') ||
-              // (pokeStore[0] === 'psychic' && pokeStore[2] === 'psychic') ||
-              // (pokeStore[0] === 'bug' && pokeStore[2] === '') ||
-              // (pokeStore[0] === 'rock' && pokeStore[2] === '') ||
-              // (pokeStore[0] === 'ghost' && pokeStore[2] === '') ||
-              // (pokeStore[0] === 'dragon' && pokeStore[2] === '') ||
-              // (pokeStore[0] === 'dark' && pokeStore[2] === '') ||
-              // (pokeStore[0] === 'steel' && pokeStore[2] === '') ||
-              // (pokeStore[0] === 'fairy' && pokeStore[2] === '') ||
+              (pokeStore[0] === 'rock' && (pokeStore[2] === 'normal' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' || pokeStore[2] === 'poison' || pokeStore[2] === 'psychic' || pokeStore[2] === 'rock' || pokeStore[2] === 'ghost' || pokeStore[2] === 'dragon' || pokeStore[2] === 'dark' || pokeStore[2] === 'fairy')) ||
+
+              (pokeStore[0] === 'ghost' && (pokeStore[2] === 'fire' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'fighting'|| pokeStore[2] === 'poison' || pokeStore[2] === 'ground' || pokeStore[2] === 'flying' || pokeStore[2] === 'bug' || pokeStore[2] === 'rock' || pokeStore[2] === 'dragon' || pokeStore[2] === 'steel' || pokeStore[2] === 'fairy')) ||
+
+              (pokeStore[0] === 'dragon' && (pokeStore[2] === 'normal' || pokeStore[2] === 'fire' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'fighting'|| pokeStore[2] === 'poison' || pokeStore[2] === 'ground' || pokeStore[2] === 'flying' || pokeStore[2] === 'psychic' || pokeStore[2] === 'bug' || pokeStore[2] === 'rock' || pokeStore[2] === 'ghost' || pokeStore[2] === 'dark')) ||
+
+              (pokeStore[0] === 'dark' && (pokeStore[2] === 'normal' || pokeStore[2] === 'fire' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'poison' || pokeStore[2] === 'ground' || pokeStore[2] === 'flying' || pokeStore[2] === 'bug' || pokeStore[2] === 'rock' || pokeStore[2] === 'dragon' || pokeStore[2] === 'steel')) ||
+
+              (pokeStore[0] === 'steel' && (pokeStore[2] === 'normal' || pokeStore[2] === 'grass' || pokeStore[2] === 'fighting'|| pokeStore[2] === 'poison' || pokeStore[2] === 'ground' || pokeStore[2] === 'flying' || pokeStore[2] === 'psychic' || pokeStore[2] === 'bug' || pokeStore[2] === 'ghost' || pokeStore[2] === 'dragon' || pokeStore[2] === 'dark')) ||
+
+              (pokeStore[0] === 'fairy' && (pokeStore[2] === 'normal' || pokeStore[2] === 'water' || pokeStore[2] === 'electric' ||  pokeStore[2] === 'grass' ||  pokeStore[2] === 'ice' || pokeStore[2] === 'ground' || pokeStore[2] === 'flying' || pokeStore[2] === 'psychic' || pokeStore[2] === 'bug' || pokeStore[2] === 'rock' || pokeStore[2] === 'ghost' || pokeStore[2] === 'fairy'))
 
 
             ) {
@@ -130,19 +132,41 @@ document.addEventListener('DOMContentLoaded', function() {
               document.querySelector('h2').innerText = 'Normal damage - 100%';
             
             } else if(
-              (pokeStore[0] === 'grass' && pokeStore[1] === 'grass') ||
-              (pokeStore[0] === 'water' && pokeStore[1] === 'water') ||
-              (pokeStore[0] === 'fire' && pokeStore[1] === 'fire') ||
-              (pokeStore[0] === 'electric' && pokeStore[1] === 'electric') ||
-              (pokeStore[0] === 'ice' && pokeStore[1] === 'ice') ||
-              (pokeStore[0] === 'fighting' && pokeStore[1] === 'fighting') ||
-              (pokeStore[0] === 'poison' && pokeStore[1] === 'poison') ||
-              (pokeStore[0] === 'gound' && pokeStore[1] === 'gound') ||
-              (pokeStore[0] === 'flying' && pokeStore[1] === 'flying') ||
-              (pokeStore[0] === 'psychic' && pokeStore[1] === 'psychic') ||
-              (pokeStore[0] === 'flying' && pokeStore[1] === 'flying') ||
-              (pokeStore[0] === 'rock' && pokeStore[1] === 'rock')
+              (pokeStore[0] === 'normal' && (pokeStore[1] === 'normal' || pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' ||  pokeStore[1] === 'grass' ||  pokeStore[1] === 'ice' || pokeStore[1] === 'fighting'|| pokeStore[1] === 'poison' || pokeStore[1] === 'ground' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'dragon' || pokeStore[1] === 'dark' || pokeStore[1] === 'fairy')) ||
 
+              (pokeStore[0] === 'fire' && (pokeStore[1] === 'normal' || pokeStore[1] === 'electric' || pokeStore[1] === 'ground' || pokeStore[1] === 'fighting' || pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dark' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'water' && (pokeStore[1] === 'normal' || pokeStore[1] === 'electric' || pokeStore[1] === 'ice' || pokeStore[1] === 'fighting' || pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dark' || pokeStore[1] === 'steel' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'electric' && (pokeStore[1] === 'normal' || pokeStore[1] === 'fire' || pokeStore[1] === 'ice' || pokeStore[1] === 'fighting' || pokeStore[1] === 'poison' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'rock' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dark' || pokeStore[1] === 'steel' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'grass' && (pokeStore[1] === 'normal' || pokeStore[1] === 'electric' || pokeStore[1] === 'ice' || pokeStore[1] === 'fighting' || pokeStore[1] === 'psychic' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dark' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'ice' && (pokeStore[1] === 'normal' || pokeStore[1] === 'electric' || pokeStore[1] === 'fighting' || pokeStore[1] === 'poison' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'rock' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dark' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'fighting' && (pokeStore[1] === 'normal' || pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'poison' && (pokeStore[1] === 'normal' || pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' || pokeStore[1] === 'ice' || pokeStore[1] === 'fighting' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'dragon'|| pokeStore[1] === 'dark')) ||
+
+              (pokeStore[0] === 'ground' && (pokeStore[1] === 'normal' || pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' ||  pokeStore[1] === 'grass' ||  pokeStore[1] === 'ice' || pokeStore[1] === 'fighting'|| pokeStore[1] === 'poison' || pokeStore[1] === 'ground'|| pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'dragon'|| pokeStore[1] === 'dark' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'flying' && (pokeStore[1] === 'normal' || pokeStore[1] === 'fire' || pokeStore[1] === 'water' ||  pokeStore[1] === 'ice' || pokeStore[1] === 'poison' || pokeStore[1] === 'ground'|| pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dragon' || pokeStore[1] === 'dark' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'psychic' && (pokeStore[1] === 'normal' || pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' ||  pokeStore[1] === 'grass' ||  pokeStore[1] === 'ice' || pokeStore[1] === 'ground' || pokeStore[1] === 'flying' || pokeStore[1] === 'bug' || pokeStore[1] === 'rock' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dragon' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'bug' && (pokeStore[1] === 'normal' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' || pokeStore[1] === 'ice' || pokeStore[1] === 'ground' || pokeStore[1] === 'bug' || pokeStore[1] === 'rock' || pokeStore[1] === 'dragon')) ||
+
+              (pokeStore[0] === 'rock' && (pokeStore[1] === 'normal' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' || pokeStore[1] === 'grass' || pokeStore[1] === 'poison' || pokeStore[1] === 'psychic' || pokeStore[1] === 'rock' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dragon' || pokeStore[1] === 'dark' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'ghost' && (pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' || pokeStore[1] === 'grass' || pokeStore[1] === 'ice' || pokeStore[1] === 'fighting'|| pokeStore[1] === 'poison' || pokeStore[1] === 'ground' || pokeStore[1] === 'flying' || pokeStore[1] === 'bug' || pokeStore[1] === 'rock' || pokeStore[1] === 'dragon' || pokeStore[1] === 'steel' || pokeStore[1] === 'fairy')) ||
+
+              (pokeStore[0] === 'dragon' && (pokeStore[1] === 'normal' || pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' || pokeStore[1] === 'grass' || pokeStore[1] === 'ice' || pokeStore[1] === 'fighting'|| pokeStore[1] === 'poison' || pokeStore[1] === 'ground' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'rock' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dark')) ||
+
+              (pokeStore[0] === 'dark' && (pokeStore[1] === 'normal' || pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' || pokeStore[1] === 'grass' || pokeStore[1] === 'ice' || pokeStore[1] === 'poison' || pokeStore[1] === 'ground' || pokeStore[1] === 'flying' || pokeStore[1] === 'bug' || pokeStore[1] === 'rock' || pokeStore[1] === 'dragon' || pokeStore[1] === 'steel')) ||
+
+              (pokeStore[0] === 'steel' && (pokeStore[1] === 'normal' || pokeStore[1] === 'grass' || pokeStore[1] === 'fighting'|| pokeStore[1] === 'poison' || pokeStore[1] === 'ground' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'ghost' || pokeStore[1] === 'dragon' || pokeStore[1] === 'dark')) ||
+
+              (pokeStore[0] === 'fairy' && (pokeStore[1] === 'normal' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' || pokeStore[1] === 'grass' || pokeStore[1] === 'ice' || pokeStore[1] === 'ground' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'rock' || pokeStore[1] === 'ghost' || pokeStore[1] === 'fairy'))
 
             ) {
               document.querySelector('#pokeImg1').src = pokeImg[0];
