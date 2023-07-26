@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
               (pokeStore[0] === 'flying' && (pokeStore[2] === 'grass' || pokeStore[2] === 'fighting' || pokeStore[2] === 'bug')) ||
               (pokeStore[0] === 'psychic' && (pokeStore[2] === 'fighting' || pokeStore[2] === 'poison')) ||
               (pokeStore[0] === 'bug' && (pokeStore[2] === 'grass' || pokeStore[2] === 'psychic' || pokeStore[2] === 'dark')) ||
-              (pokeStore[0] === 'rock' && (pokeStore[2] === 'fire' || pokeStore[2] === 'ice' || pokeStore[2] === 'flying' || pokeStore[2] === 'bug'))
+              (pokeStore[0] === 'rock' && (pokeStore[2] === 'fire' || pokeStore[2] === 'ice' || pokeStore[2] === 'flying' || pokeStore[2] === 'bug')) ||
+              (pokeStore[0] === 'ghost' && pokeStore[2] === 'psychic')
 
 
             ) {
@@ -70,7 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
               (pokeStore[0] === 'flying' && (pokeStore[1] === 'grass' || pokeStore[1] === 'fighting' || pokeStore[1] === 'bug')) ||
               (pokeStore[0] === 'psychic' && (pokeStore[1] === 'fighting' || pokeStore[1] === 'poison')) ||
               (pokeStore[0] === 'flying' && (pokeStore[1] === 'grass' || pokeStore[1] === 'fighting' || pokeStore[1] === 'bug')) ||
-              (pokeStore[0] === 'rock' && (pokeStore[1] === 'fire' || pokeStore[1] === 'ice' || pokeStore[1] === 'flying' || pokeStore[1] === 'bug'))
+              (pokeStore[0] === 'rock' && (pokeStore[1] === 'fire' || pokeStore[1] === 'ice' || pokeStore[1] === 'flying' || pokeStore[1] === 'bug')) ||
+              (pokeStore[0] === 'ghost' && pokeStore[1] === 'psychic')
 
 
 
@@ -119,6 +121,25 @@ document.addEventListener('DOMContentLoaded', function() {
               document.querySelector('#pokeImg1').src = pokeImg[0];
               document.querySelector('#pokeImg2').src = pokeImg[1];
               document.querySelector('h2').innerText = '=';
+
+            } else if(
+              (pokeStore[0] === 'ghost' && pokeStore[2] === 'ghost')
+              
+
+            ) {
+              document.querySelector('#pokeImg1').src = pokeImg[0];
+              document.querySelector('#pokeImg2').src = pokeImg[1];
+              document.querySelector('h2').innerText = '2x < >';
+
+            
+            } else if(
+              (pokeStore[0] === 'ghost' && pokeStore[1] === 'ghost')
+              
+
+            ) {
+              document.querySelector('#pokeImg1').src = pokeImg[0];
+              document.querySelector('#pokeImg2').src = pokeImg[1];
+              document.querySelector('h2').innerText = '2x < >';
               
               // If none aplies then if has weakness against the other type
             } else {
