@@ -224,3 +224,13 @@ function calculateTypeEffectiveness(pokeTypes) {
     steel: { normal: 1, fire: 0.5, water: 0.5, electric: 0.5, grass: 1, ice: 2, fighting: 1, poison: 1, ground: 1, flying: 1, psychic: 1, bug: 1, rock: 2, ghost: 1, dragon: 1, dark: 1, steel: 0.5, fairy: 2 },
     fairy: { normal: 1, fire: 0.5, water: 1, electric: 1, grass: 1, ice: 1, fighting: 2, poison: 0.5, ground: 1, flying: 1, psychic: 1, bug: 1, rock: 1, ghost: 1, dragon: 0, dark: 2, steel: 0.5, fairy: 1 },
   };
+
+   // Calculate effectiveness
+   let effectiveness = 1;
+   for (let i = 0; i < pokeTypes[0].length; i++) {
+     for (let j = 0; j < pokeTypes[1].length; j++) {
+       const attackingType = pokeTypes[0][i];
+       const defendingType = pokeTypes[1][j];
+       effectiveness *= typeChart[attackingType][defendingType];
+     }
+   }
