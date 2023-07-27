@@ -143,7 +143,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
             (pokeStore[0] === 'ice' && (pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'ice' || pokeStore[1] === 'steel')) ||
 
-            (pokeStore[0] === 'fighting' && (pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'bug' || pokeStore[1] === 'dragon' || pokeStore[1] === 'steel')) ||
+            (pokeStore[0] === 'fighting' && (pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'fairy')) ||
+
+            (pokeStore[0] === 'poison' && (pokeStore[1] === 'poison' || pokeStore[1] === 'ground' || pokeStore[1] === 'rock' || pokeStore[1] === 'ghost')) ||
+
+            (pokeStore[0] === 'ground' && (pokeStore[1] === 'grass' || pokeStore[1] === 'bug')) ||
+
+            (pokeStore[0] === 'flying' && (pokeStore[1] === 'elctric' || pokeStore[1] === 'rock' || pokeStore[1] === 'steel')) ||
+
+            (pokeStore[0] === 'psychic' && (pokeStore[1] === 'psychic' || pokeStore[1] === 'steel')) ||
+
+            (pokeStore[0] === 'bug' && (pokeStore[1] === 'fire' || pokeStore[1] === 'fighting' || pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'ghost' || pokeStore[1] === 'steel' || pokeStore[1] === 'fairy')) ||
+
+            (pokeStore[0] === 'rock' && (pokeStore[1] === 'fighting' || pokeStore[1] === 'ground' || pokeStore[1] === 'steel')) ||
+
+            (pokeStore[0] === 'ghost' && (pokeStore[1] === 'dark')) ||
+
+            (pokeStore[0] === 'dragon' && (pokeStore[1] === 'steel')) ||
+
+            (pokeStore[0] === 'dark' && (pokeStore[1] === 'fighting' || pokeStore[1] === 'dark' || pokeStore[1] === 'fairy')) ||
+
+            (pokeStore[0] === 'steel' && (pokeStore[1] === 'fire' || pokeStore[1] === 'water' || pokeStore[1] === 'electric' || pokeStore[1] === 'steel')) ||
+
+            (pokeStore[0] === 'fairy' && (pokeStore[1] === 'fire' || pokeStore[1] === 'poison' || pokeStore[1] === 'steel')) ||
+
+
+
+
+
+
+
+
 
 
           ) {
