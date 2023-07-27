@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
               (pokeStore[0] === 'fighting' && (pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'psychic' || pokeStore[1] === 'bug' || pokeStore[1] === 'fairy')) ||
               (pokeStore[0] === 'poison' && (pokeStore[1] === 'poison' || pokeStore[1] === 'ground' || pokeStore[1] === 'rock' || pokeStore[1] === 'ghost')) ||
               (pokeStore[0] === 'ground' && (pokeStore[1] === 'grass' || pokeStore[1] === 'bug')) ||
-              (pokeStore[0] === 'flying' && (pokeStore[1] === 'elctric' || pokeStore[1] === 'rock' || pokeStore[1] === 'steel')) ||
+              (pokeStore[0] === 'flying' && (pokeStore[1] === 'electric' || pokeStore[1] === 'rock' || pokeStore[1] === 'steel')) ||
               (pokeStore[0] === 'psychic' && (pokeStore[1] === 'psychic' || pokeStore[1] === 'steel')) ||
               (pokeStore[0] === 'bug' && (pokeStore[1] === 'fire' || pokeStore[1] === 'fighting' || pokeStore[1] === 'poison' || pokeStore[1] === 'flying' || pokeStore[1] === 'ghost' || pokeStore[1] === 'steel' || pokeStore[1] === 'fairy')) ||
               (pokeStore[0] === 'rock' && (pokeStore[1] === 'fighting' || pokeStore[1] === 'ground' || pokeStore[1] === 'steel')) ||
@@ -196,3 +196,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+
+// Updating the current code to Objects
+
+// const typeEffectiveness = {
+//   grass: {
+//     superEffective: ['water', 'ground', 'rock'],
+//     notVeryEffective: ['fire', 'grass', 'poison', 'flying', 'bug', 'dragon', 'steel'],
+//     noEffect: []
+//   },
+//   water: {
+//     superEffective: ['fire', 'ground', 'rock'],
+//     notVeryEffective: ['water', 'grass', 'dragon'],
+//     noEffect: []
+//   },
+//   // Add more types here...
+// };
+
+// // Function to determine type effectiveness
+// function getTypeEffectiveness(attackingType, defendingType) {
+//   if (typeEffectiveness[attackingType].superEffective.includes(defendingType)) {
+//     return 'Super effective - 200% damage';
+//   } else if (typeEffectiveness[attackingType].notVeryEffective.includes(defendingType)) {
+//     return 'Not very effective - 50% damage';
+//   } else if (typeEffectiveness[attackingType].noEffect.includes(defendingType)) {
+//     return 'No effect - 0% damage';
+//   } else {
+//     return 'Normal damage - 100% damage';
+//   }
+// }
