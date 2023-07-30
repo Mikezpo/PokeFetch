@@ -34,6 +34,11 @@ body {
 input {
     margin: 4rem auto 0;
     text-align: center;
+    width: 15rem;
+    border-radius: 16px;
+    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
+    border: 1px solid rgb(13, 95, 136);
 }
 
 span {
@@ -45,8 +50,9 @@ button {
     display: block;
     font-weight: 600;
     font-size: 2.2rem;
+    color: rgb(13, 95, 136);
     margin: 2rem auto 0;
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem;
     background: rgb(236, 202, 150);
     border: 1px solid rgb(236, 202, 150);
     border-radius: 16px;
@@ -63,7 +69,7 @@ button:hover {
 
 div {
     height: 50rem;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -73,7 +79,7 @@ div {
 img {
     display: block;
     margin: 0 auto;
-    width: 20rem;
+    width: 30rem;
     border-radius: 10px;
     border: 1px solid rgb(236, 202, 150);
     background: rgb(236, 202, 150);
@@ -81,8 +87,10 @@ img {
 
 h2 {
     color: rgb(0, 0, 0);
-    border: 1px solid white;
+    border: 1px solid rgb(236, 202, 150);
     border-radius: 16px;
-    padding: 1rem;
-    background: rgb(236, 202, 150);;
+    padding: 1rem 2rem;
+    background: white;
+    font-size: 2rem;
+    color: rgb(13, 95, 136);
 }

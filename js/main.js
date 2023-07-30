@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else if (effectiveness < 1) {
       return 'Not very effective - 50% damage';
     } else if (effectiveness === 1) {
-      return 'Normal damage - 100% damage';
+      return 'Normal - 100% damage';
     } else if (effectiveness > 1) {
       return 'Super effective - 200% damage';
     }
