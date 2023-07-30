@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&display=swap');
+
 /* Box Model Hack */
 *{
     box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    color: black;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 100;
+    line-height: 2;
 }
   
 body {
@@ -13,7 +23,7 @@ body {
   /* LAYOUT*/
 
 .mainPokeSection {
-    height: 50rem;
+    height: 100rem;
     margin: 0 auto;
     background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
     background-position: center;
@@ -33,15 +43,27 @@ span {
 
 button {
     display: block;
+    font-weight: 600;
+    font-size: 2.2rem;
     margin: 2rem auto 0;
     padding: 0.5rem 1rem;
     background: rgb(236, 202, 150);
+    border: 1px solid rgb(236, 202, 150);
     border-radius: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.1);
+    transition: all 0.5s ease;
+    background: white;
+    color: rgb(13, 95, 136);
+    border: 1px solid rgb(13, 95, 136);
 }
 
 div {
-    height: 30rem;
-    width: 80%;
+    height: 50rem;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
