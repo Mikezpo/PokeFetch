@@ -22,9 +22,15 @@ body {
 
   /* LAYOUT*/
 
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgb(13, 95, 136);
+  }
+
 .mainPokeSection {
-    height: 100rem;
-    margin: 0 auto;
+    height: 140rem;
+    margin: 0 4rem;
     background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
     background-position: center;
     background-size: cover;
@@ -32,6 +38,8 @@ body {
 }
 
 .introText {
+    font-size: 1.8rem;
+    font-weight: 400;
     padding: 4rem 0;
     max-width: 70rem;
     text-align: center;
@@ -46,6 +54,10 @@ input, button {
     font-size: 1.6rem;
     font-weight: 600;
     padding: 1rem;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    z-index: 2;
+    position: relative;
 }
 
 input {
@@ -66,6 +78,10 @@ input:focus {
     border: 1px solid rgb(236, 202, 150);
     box-shadow: 5px 0 10px rgb(236, 202, 150);
     background: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
 }
 
 input[type=text]:focus {
@@ -79,10 +95,10 @@ button {
     border-radius: 0 10px 10px 0;
     cursor: pointer;
     margin-left: -0.4%;
+    
 }
 
-button:hover {
-    transition: all 0.5s ease;
+button:hover {    
     background: white;
     color: rgb(13, 95, 136);
     border: 1px solid rgb(236, 202, 150);
@@ -102,7 +118,7 @@ button:hover {
 div {
     height: 50rem;
     width: 90%;
-    margin: 3.6rem auto 0;
+    margin: 5.6rem auto 0;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -111,20 +127,10 @@ div {
 img {
     display: block;
     margin: 0 auto;
-    width: 21rem;
-    height: 20rem;
+    width: 25rem;
+    height: 24rem;
     border-radius: 5px;
     border: 1px solid rgb(0, 0, 0);
     background: rgb(236, 202, 150);
     object-fit: cover;
-}
-
-h2 {
-    color: rgb(0, 0, 0);
-    border: 1px solid rgb(236, 202, 150);
-    border-radius: 16px;
-    padding: 1rem 2rem;
-    background: white;
-    font-size: 2rem;
-    color: rgb(13, 95, 136);
 }
