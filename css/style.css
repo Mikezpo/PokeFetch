@@ -34,12 +34,8 @@ body {
     margin: 0 4rem;
     background: #00739A;
     /* background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80'); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    
 }
-
-
 
 .introText {
     font-size: 2.2rem;
@@ -129,6 +125,17 @@ div {
     justify-content: center;
 }
 
+.pokemonDiv {
+    background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    border: 1px solid red;
+}
+
 img {
     display: block;
     margin: 0 auto;
@@ -138,4 +145,5 @@ img {
     border: 1px solid rgb(0, 0, 0);
     background: rgb(236, 202, 150);
     object-fit: cover;
+    z-index: 4;
 }
