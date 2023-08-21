@@ -1,11 +1,33 @@
-// fetch('https://pokeapi.co/api/v2/pokemon/')
-//       .then(res => res.json()) // parse response as JSON
-//       .then(data => {
-//         console.log(data.types[1].type.name);
-//       })
-//       .catch(err => {
-//         console.log(`error ${err}`);
-//       });
+fetch('https://pokeapi.co/api/v2/pokemon/charmander')
+      .then(res => res.json()) // parse response as JSON
+      .then(data => {
+        console.log(data.species.name);
+        console.log(data.types[0].type.name);
+        // console.log(data.types[1].type.name);
+        console.log(data.stats[0].stat.name);
+        console.log(data.stats[0].base_stat);
+        console.log(data.stats[1].stat.name);
+        console.log(data.stats[1].base_stat);
+        console.log(data.stats[2].stat.name);
+        console.log(data.stats[2].base_stat);
+        console.log(data.stats[3].stat.name);
+        console.log(data.stats[3].base_stat);
+        console.log(data.stats[4].stat.name);
+        console.log(data.stats[4].base_stat);
+        console.log(data.stats[5].stat.name);
+        console.log(data.stats[5].base_stat);
+        
+        
+        console.log(data.abilities[0].ability.name);
+        console.log(data.abilities[1].ability.name);
+        console.log(data);
+        console.log(data);
+        console.log(data);
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(`error ${err}`);
+      });
 
 document.addEventListener('DOMContentLoaded', function () {
   // Function for handling the fetch and processing data
