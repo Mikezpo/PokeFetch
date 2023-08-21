@@ -1,8 +1,10 @@
-fetch('https://pokeapi.co/api/v2/pokemon/charmander')
+fetch(`https://pokeapi.co/api/v2/pokemon/bisharp`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data.species.name);
+        console.log(data.id);
         console.log(data.types[0].type.name);
+        // check if type 2 is present
         // console.log(data.types[1].type.name);
         console.log(data.stats[0].stat.name);
         console.log(data.stats[0].base_stat);
@@ -20,7 +22,9 @@ fetch('https://pokeapi.co/api/v2/pokemon/charmander')
         
         console.log(data.abilities[0].ability.name);
         console.log(data.abilities[1].ability.name);
-        console.log(data);
+        // check if more abilities are present
+
+        
         console.log(data);
         console.log(data);
         console.log(data);
@@ -36,13 +40,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonInput}`;
     let pokeStore = [];
     let pokeImg = [];
+    let pokeImgShiny = [];
 
     fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         pokeStore.push(data.types.map(type => type.type.name.toLowerCase()));
-        pokeImg.push(data.sprites.front_shiny);
+        pokeImg.push(data.sprites.front_default);
+        pokeImgShiny.push(data.sprites.front_shiny);
         document.querySelector('#pokeImg').src = pokeImg[0];
+        document.querySelector('#pokeImgShiny').src = pokeImgShiny[0];
+
       })
       .catch(err => {
         console.log(`error ${err}`);

@@ -57,7 +57,7 @@ body {
 
 input, button {
     display: inline-block;
-    width: 20rem;
+    width: 25rem;
     text-align: center;
     margin: 0 auto;
     font-size: 1.6rem;
@@ -105,7 +105,7 @@ button {
     border: 1px solid rgb(236, 202, 150);
     border-radius: 0 10px 10px 0;
     cursor: pointer;
-    margin-left: -0.4%;
+    margin-left: -0.5%;
     
 }
 
@@ -133,7 +133,6 @@ div {
     background-size: cover;
     background-repeat: no-repeat;
 
-    border: 1px solid red;
 }
 
 img {
