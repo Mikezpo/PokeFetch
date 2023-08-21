@@ -46,8 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         pokeStore.push(data.types.map(type => type.type.name.toLowerCase()));
-        pokeImg.push(data.sprites.front_default);
-        pokeImgShiny.push(data.sprites.front_shiny);
+        pokeImg.push(data.sprites.other["official-artwork"].front_default);
+        pokeImgShiny.push(data.sprites.other["official-artwork"].front_shiny);
+        
+
         document.querySelector('#pokeImg').src = pokeImg[0];
         document.querySelector('#pokeImgShiny').src = pokeImgShiny[0];
 

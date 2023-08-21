@@ -125,17 +125,7 @@ div {
     justify-content: center;
 }
 
-.pokemonDiv {
-    background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
-    height: 100vh;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-}
-
-img {
+/* img {
     display: block;
     margin: 0 auto;
     width: 25rem;
@@ -145,4 +135,51 @@ img {
     background: rgb(236, 202, 150);
     object-fit: cover;
     z-index: 4;
+} */
+
+/* Pokemon images */
+
+.pokeImagesSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pokemonImageBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid red;
+}
+
+.pokemonImage {
+    margin: 0 auto;
+    width: 25rem;
+    height: 24rem;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.pokemonDefault, .pokemonShiny {
+    margin-top: 3rem;
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: white;
+    
+}
+
+/*  */
+
+.pokemonDiv {
+    background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
