@@ -38,24 +38,46 @@ header {
     align-items: center;
     margin: 0;
     padding: 0;
+    height: auto;
+
     
     border: 1px solid red;
 }
 
 .headerTitle {
     width: 30%;
+    justify-content: flex-start;
+    padding-left: 4rem;
+    margin: 0;
+
+    border: 1px solid blue;
 }
 
 .headerList {
     width: 70%;
+    margin: 0;
+    justify-content: flex-end;
+
+    border: 1px solid blue;
 }
 
 h1 {
     font-size: 3.4rem;
     font-weight: bold;
     color: #00739A;
+    padding: 0;
+    margin: 0;
+}
 
+.headerList ul {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    
+}
 
+ul li {
+    margin-right: 4rem;
 }
 
 /* MAIN */
@@ -150,7 +172,7 @@ button:hover {
 }
 
 div {
-    height: 50rem;
+    /* height: 50rem; */
     width: 90%;
     margin: 5.6rem auto 0;
     display: flex;
