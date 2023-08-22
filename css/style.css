@@ -23,11 +23,44 @@ body {
 
   /* LAYOUT*/
 
-  h1 {
-    font-size: 3rem;
+/* HEADER */
+
+header {
+    
+
+    border: 1px solid blue;
+}
+
+.headerFlex {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    
+    border: 1px solid red;
+}
+
+.headerTitle {
+    width: 30%;
+}
+
+.headerList {
+    width: 70%;
+}
+
+h1 {
+    font-size: 3.4rem;
     font-weight: bold;
     color: #00739A;
-  }
+
+
+}
+
+/* MAIN */
+
+
 
 .mainPokeSection {
     height: 200rem;
@@ -125,18 +158,6 @@ div {
     justify-content: center;
 }
 
-/* img {
-    display: block;
-    margin: 0 auto;
-    width: 25rem;
-    height: 24rem;
-    border-radius: 5px;
-    border: 1px solid rgb(0, 0, 0);
-    background: rgb(236, 202, 150);
-    object-fit: cover;
-    z-index: 4;
-} */
-
 /* Pokemon images */
 
 .pokeImagesSection {
@@ -152,8 +173,6 @@ div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    border: 1px solid red;
 }
 
 .pokemonImage {
@@ -161,8 +180,7 @@ div {
     width: 25rem;
     height: 24rem;
     object-fit: cover;
-    border-radius: 5px;
-    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
 }
 
 .pokemonDefault, .pokemonShiny {
