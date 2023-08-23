@@ -30,7 +30,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin: 0 auto;
     padding: 3rem 0 0 0;
     height: auto;
 
@@ -41,10 +41,10 @@ body {
 .headerTitle {
     width: 30%;
     justify-content: flex-start;
-    padding-left: 4rem;
-    margin: 0;
-/* 
-    border: 1px solid blue; */
+    margin: 0 0 0 4rem;
+    padding: 0;
+
+    /* border: 1px solid blue; */
 }
 
 .headerList {
@@ -53,22 +53,32 @@ body {
     justify-content: flex-end;
     align-items: center;
 
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 h1 {
+    display: flex;
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
 h1 img {
-    max-width: 50rem;
+    width: 100%;
+    z-index: 4;
 }
 
 .headerList ul {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
     height: 100%;
+    margin-right: 4rem;
+    padding: 2rem 0;
+    width: 80%;
+    
+
+    background: #00739A;
 }
 
 ul li {
@@ -78,7 +88,7 @@ ul li {
 
 li a {
     text-decoration: none;
-    color:rgb(13, 95, 136);
+    color:white;
     font-size: 2rem;
     font-weight: 400;
 }
@@ -89,7 +99,6 @@ li a {
     height: 200rem;
     margin: 0 4rem;
     background: #00739A;
-    /* background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80'); */
     
 }
 
@@ -172,7 +181,7 @@ button {
 
 button:hover {    
     background: white;
-    color: rgb(13, 95, 136);
+    color: #00739A;
     border: 1px solid rgb(236, 202, 150);
     box-shadow: 5px 0 10px rgb(236, 202, 150);
 }
