@@ -107,8 +107,8 @@ li a:hover {
 
 /* MAIN */
 
-.mainPokeSection {
-    height: 200rem;
+.mainPokeSection, .pokemonStatsSection {
+    height: 100%;
     margin: 0 4rem;
     background: #00739A;
     border-radius: 10px;
@@ -259,7 +259,7 @@ div {
 .pokemonDiv {
     background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
     height: 40rem;
-    width: 50%;
+    max-width: 40rem;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -281,4 +281,25 @@ div {
     margin-top: 4rem;
 
     border: 1px solid red;
+}
+
+/* Footer */
+
+.footerList ul {
+    display: flex;
+
+}
+
+.footerList ul li {
+    font-size: 1.2rem;
+}
+
+.copyrightFooter {
+    font-weight: 500;
+    margin-bottom: 4rem;
+}
+
+.copyrightFooter a {
+    text-decoration: none;
+    color: black;
 }
