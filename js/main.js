@@ -1,3 +1,5 @@
+// Testing the API values to be fetched
+
 fetch(`https://pokeapi.co/api/v2/pokemon/bisharp`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
@@ -33,6 +35,17 @@ fetch(`https://pokeapi.co/api/v2/pokemon/bisharp`)
         console.log(`error ${err}`);
       });
 
+// Created Object to capitalize the first letter of the input the user provides
+
+Object.defineProperty(String.prototype, 'capitalize', {
+  value: function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  },
+  enumerable: false
+});
+
+// Function to fetch API
+
 document.addEventListener('DOMContentLoaded', function () {
   // Function for handling the fetch and processing data
   function getFetch() {
@@ -48,10 +61,15 @@ document.addEventListener('DOMContentLoaded', function () {
         pokeStore.push(data.types.map(type => type.type.name.toLowerCase()));
         pokeImg.push(data.sprites.other["official-artwork"].front_default);
         pokeImgShiny.push(data.sprites.other["official-artwork"].front_shiny);
-        
+
+        // Declared variable to make first letter Uppercase
+        let firstLetterCap = `${pokemonInput}`.capitalize()
+
 
         document.querySelector('#pokeImg').src = pokeImg[0];
         document.querySelector('#pokeImgShiny').src = pokeImgShiny[0];
+        document.querySelector('#pokeDefaultImg').innerHTML = firstLetterCap;
+        document.querySelector('#pokeShinyImg').innerHTML = `Shiny ` + firstLetterCap;
 
       })
       .catch(err => {
