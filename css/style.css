@@ -11,7 +11,7 @@ html {
     font-family: "Source Sans Pro", sans-serif;
     font-weight: 100;
     line-height: 2;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.3rem;
 }
   
 body {
@@ -60,12 +60,14 @@ h1 {
     display: flex;
     padding: 0;
     margin: 0;
-    width: 100%;
+    max-width: 22rem;
+
 }
 
 h1 img {
     width: 100%;
     z-index: 4;
+    
 }
 
 .headerList ul {
@@ -74,23 +76,33 @@ h1 img {
     justify-content: flex-end;
     height: 100%;
     margin-right: 4rem;
-    padding: 2rem 0;
-    width: 80%;
-    
+    padding: 0;
+    width: 70%;
+    background: none;
 
-    background: #00739A;
+
 }
 
 ul li {
-    margin-right: 4rem;
+    /* margin-right: 2rem; */
     list-style: none;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 li a {
     text-decoration: none;
-    color:white;
-    font-size: 2rem;
-    font-weight: 400;
+    color:#00739A;
+    padding: 1.4rem 2rem;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+
+}
+
+li a:hover {
+    transform: scale(1.05);
+    background-color: #00739A;
+    color: white;
 }
 
 /* MAIN */
@@ -105,13 +117,16 @@ li a {
 .introHeader {
     font-size: 3rem;
     padding: 8rem 0 0 0;
+    
+    color: rgb(236, 202, 150);
 }
 
 .introText {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 400;
+    line-height: 2.4;
     padding: 0 4rem 2rem;
-    max-width: 110rem;
+    max-width: 100rem;
     text-align: center;
     margin: 0 auto;
     color: white;
@@ -123,6 +138,16 @@ li a {
 
 .bottomText {
     padding-bottom: 4rem;
+}
+
+/* Search */
+
+.headerSearch {
+    padding: 0;
+    margin-bottom: 4rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 input, button {
