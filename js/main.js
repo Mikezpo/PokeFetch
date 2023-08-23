@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let pokeStore = [];
     let pokeImg = [];
     let pokeImgShiny = [];
+    
+    let pokeId = [];
+    let pokeType = [];
+    // let pokeType = [];
 
     fetch(url)
       .then(res => res.json()) // parse response as JSON
@@ -61,15 +65,26 @@ document.addEventListener('DOMContentLoaded', function () {
         pokeStore.push(data.types.map(type => type.type.name.toLowerCase()));
         pokeImg.push(data.sprites.other["official-artwork"].front_default);
         pokeImgShiny.push(data.sprites.other["official-artwork"].front_shiny);
+        
+        pokeId.push(data.id);
+        pokeType.push(data.types[0].type.name);
 
         // Declared variable to make first letter Uppercase
-        let firstLetterCap = `${pokemonInput}`.capitalize()
+        let firstLetterCap = `${pokemonInput}`.capitalize();
+        let typeLetterCap = data.types[0].type.name.capitalize();
 
-
+        // Pokemon Images
         document.querySelector('#pokeImg').src = pokeImg[0];
         document.querySelector('#pokeImgShiny').src = pokeImgShiny[0];
+        // Pokemon name
         document.querySelector('#pokeDefaultImg').innerHTML = firstLetterCap;
         document.querySelector('#pokeShinyImg').innerHTML = `Shiny ` + firstLetterCap;
+        // Pokemon stats
+        document.querySelector('.pokemonName').innerHTML = `Name: ` + firstLetterCap;
+        document.querySelector('.pokemonId').innerHTML = `Pokemon ID: ` + pokeId;
+        document.querySelector('.pokemonType').innerHTML = `Pokemon Type: ` + typeLetterCap;
+
+
 
       })
       .catch(err => {
