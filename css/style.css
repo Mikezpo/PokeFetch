@@ -16,7 +16,7 @@ html {
   
 body {
     text-align: center;
-    background: rgb(236, 202, 150);
+    background: none;
     height: auto;
     
 }
@@ -25,23 +25,17 @@ body {
 
 /* HEADER */
 
-header {
-    
-
-    border: 1px solid blue;
-}
-
 .headerFlex {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
-    padding: 0;
+    padding: 3rem 0 0 0;
     height: auto;
 
     
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .headerTitle {
@@ -49,40 +43,47 @@ header {
     justify-content: flex-start;
     padding-left: 4rem;
     margin: 0;
-
-    border: 1px solid blue;
+/* 
+    border: 1px solid blue; */
 }
 
 .headerList {
     width: 70%;
     margin: 0;
     justify-content: flex-end;
+    align-items: center;
 
     border: 1px solid blue;
 }
 
 h1 {
-    font-size: 3.4rem;
-    font-weight: bold;
-    color: #00739A;
     padding: 0;
     margin: 0;
+}
+
+h1 img {
+    max-width: 50rem;
 }
 
 .headerList ul {
     display: flex;
     flex-direction: row;
     height: 100%;
-    
 }
 
 ul li {
     margin-right: 4rem;
+    list-style: none;
+}
+
+li a {
+    text-decoration: none;
+    color:rgb(13, 95, 136);
+    font-size: 2rem;
+    font-weight: 400;
 }
 
 /* MAIN */
-
-
 
 .mainPokeSection {
     height: 200rem;
@@ -90,6 +91,11 @@ ul li {
     background: #00739A;
     /* background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80'); */
     
+}
+
+.introHeader {
+    font-size: 3rem;
+    padding: 8rem 0 0 0;
 }
 
 .introText {
@@ -103,11 +109,11 @@ ul li {
 }
 
 .topText {
-    padding-top: 8rem;
+    padding-top: 4rem;
 }
 
 .bottomText {
-    padding-bottom: 8rem;
+    padding-bottom: 4rem;
 }
 
 input, button {
@@ -217,9 +223,10 @@ div {
 
 .pokemonDiv {
     background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
-    height: 100vh;
-    width: 100%;
+    height: 40rem;
+    width: 50%;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    margin-bottom: 4rem;
 }
