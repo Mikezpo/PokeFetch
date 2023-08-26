@@ -6,7 +6,8 @@ fetch(`https://pokeapi.co/api/v2/pokemon/bisharp`)
         console.log(data.species.name);
         console.log(data.id);
         console.log(data.types[0].type.name);
-        // check if type 2 is present
+        // it gives error when allowing more than one type since some pokemons only have one type
+        // create for loop conditional to check if another pokemon type is present
         // console.log(data.types[1].type.name);
         console.log(data.stats[0].stat.name);
         console.log(data.stats[0].base_stat);
@@ -24,7 +25,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/bisharp`)
         
         console.log(data.abilities[0].ability.name);
         console.log(data.abilities[1].ability.name);
-        // check if more abilities are present
+        // create for loop conditional to check if more abilities are present
 
         
         console.log(data);

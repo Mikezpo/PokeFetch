@@ -119,7 +119,7 @@ li a:hover {
     font-size: 3rem;
     padding: 8rem 0 0 0;
     
-    color: rgb(1, 255, 247);
+    color: #EFFFFA;
 }
 
 .introText {
@@ -280,7 +280,6 @@ div {
 
     margin-top: 4rem;
 
-    border: 1px solid red;
 }
 
 /* Footer */
