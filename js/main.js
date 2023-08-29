@@ -81,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('#pokeDefaultImg').innerHTML = firstLetterCap;
         document.querySelector('#pokeShinyImg').innerHTML = `Shiny ` + firstLetterCap;
         // Pokemon stats
-        document.querySelector('.pokemonName').innerHTML = `Name: ` + firstLetterCap;
-        document.querySelector('.pokemonId').innerHTML = `Pokemon ID: ` + pokeId;
-        document.querySelector('.pokemonType').innerHTML = `Pokemon Type: ` + typeLetterCap;
+        document.querySelector('.pokemonName').innerHTML = firstLetterCap;
+        document.querySelector('.pokemonId').innerHTML = pokeId;
+        document.querySelector('.pokemonType').innerHTML = typeLetterCap;
 
 
 

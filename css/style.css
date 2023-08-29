@@ -272,7 +272,6 @@ div {
 .statsTopDiv {
     width: 80%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -280,7 +279,36 @@ div {
 
     margin-top: 4rem;
 
+    color: white;
+
+    /* border: 1px solid red; */
+
 }
+
+.statsLeftBox, .statsRightBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 30rem;
+    font-size: 1.6rem;
+    
+
+    border: 1px solid white;
+}
+
+.statsLeftBox {
+    align-items: flex-end;
+    color: rgb(236, 202, 150);
+    
+}
+
+
+
+/* .whiteDivider {
+    border-top: 8px dotted white;
+    width: 20rem;
+} */
 
 /* Footer */
 
