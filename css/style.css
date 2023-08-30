@@ -201,7 +201,7 @@ button {
     border: 1px solid rgb(236, 202, 150);
     border-radius: 0 10px 10px 0;
     cursor: pointer;
-    margin-left: -0.5%;
+    margin-left: -0.6%;
     
 }
 
@@ -224,6 +224,7 @@ div {
 /* Pokemon images */
 
 .pokeImagesSection {
+    width: 80rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -231,7 +232,6 @@ div {
 }
 
 .pokemonImageBox {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -255,6 +255,72 @@ div {
 }
 
 /*  */
+/*  */
+
+.statsSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40rem;
+    margin: 10rem auto;
+
+    border: 1px solid white;
+  }
+  
+.statsInformation {
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0 !important;
+}
+  
+.statsRow {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 0 !important;
+    margin-bottom: 2rem;
+    
+    
+
+    border: 1px solid red;
+}
+  
+.statsLabel {
+    width: 50%;
+    margin-right: 1rem;
+    border: 1px solid yellow;
+    justify-content: flex-end;
+
+    margin-top: 0 !important;
+}
+
+.statsUl {
+    width: 50%;
+    border: 1px solid black;
+    justify-content: flex-start;
+
+    margin-top: 0 !important;
+}
+  
+.statsUl ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow content to wrap to the next line */
+    gap: 0.5rem; /* Add space between items */
+}
+  
+.apiInfo {
+    padding-left: 1rem;
+    /* min-width: 10rem; */
+    word-wrap: break-word;
+}
+
+/*  */
 
 .pokemonDiv {
     background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
@@ -270,15 +336,13 @@ div {
 /* Stats */
 
 .statsTopDiv {
-    width: 80%;
+    /* max-width: 80rem; */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     text-align: center;
-
     margin-top: 4rem;
-
     color: white;
 
     /* border: 1px solid red; */
@@ -290,16 +354,18 @@ div {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    max-width: 30rem;
+    /* max-width: 30rem; */
     font-size: 1.6rem;
     
 
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 
 .statsLeftBox {
+    justify-content: center;
     align-items: flex-end;
     color: rgb(236, 202, 150);
+    margin-right: 2rem;
     
 }
 

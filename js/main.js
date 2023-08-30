@@ -36,6 +36,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/bisharp`)
         console.log(`error ${err}`);
       });
 
+      
 // Created Object to capitalize the first letter of the input the user provides
 
 Object.defineProperty(String.prototype, 'capitalize', {
