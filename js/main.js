@@ -59,7 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
     
     let pokeId = [];
     let pokeType = [];
-    // let pokeType = [];
+    let pokeAtt = [];
+    let pokeDef = [];
+
+    let pokeHp = [];
+    let specAtt = [];
+    let specDef = [];
+    let pokeSpeed = [];
+    let pokeAbilit = [];
 
     fetch(url)
       .then(res => res.json()) // parse response as JSON
@@ -70,10 +77,19 @@ document.addEventListener('DOMContentLoaded', function () {
         
         pokeId.push(data.id);
         pokeType.push(data.types[0].type.name);
+        pokeAtt.push(data.stats[0].base_stat);
+        pokeDef.push(data.stats[1].base_stat);
+
+        pokeHp.push(data.stats[2].base_stat);
+        specAtt.push(data.stats[3].base_stat);
+        specDef.push(data.stats[4].base_stat);
+        pokeSpeed.push(data.stats[5].base_stat);
+
 
         // Declared variable to make first letter Uppercase
         let firstLetterCap = `${pokemonInput}`.capitalize();
         let typeLetterCap = data.types[0].type.name.capitalize();
+        let abilityLetterCap = data.abilities[0].ability.name.capitalize();
 
         // Pokemon Images
         document.querySelector('#pokeImg').src = pokeImg[0];
@@ -85,6 +101,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.pokemonName').innerHTML = firstLetterCap;
         document.querySelector('.pokemonId').innerHTML = pokeId;
         document.querySelector('.pokemonType').innerHTML = typeLetterCap;
+        document.querySelector('.pokeAtt').innerHTML = pokeAtt;
+        document.querySelector('.pokeDef').innerHTML = pokeDef;
+        document.querySelector('.pokeHp').innerHTML = pokeHp;
+        document.querySelector('.specAtt').innerHTML = specAtt;
+        document.querySelector('.specDef').innerHTML = specDef;
+        document.querySelector('.pokeSpeed').innerHTML = pokeSpeed;
+        document.querySelector('.pokeAbilit').innerHTML = abilityLetterCap;
 
 
 

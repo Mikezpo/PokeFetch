@@ -255,7 +255,6 @@ div {
 }
 
 /*  */
-/*  */
 
 .statsSection {
     display: flex;
@@ -278,10 +277,11 @@ div {
 .statsRow {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     margin-top: 0 !important;
     margin-bottom: 2rem;
+    font-size: 1.8rem;
     
     
 
@@ -293,6 +293,7 @@ div {
     margin-right: 1rem;
     border: 1px solid yellow;
     justify-content: flex-end;
+    color: rgb(236, 202, 150);
 
     margin-top: 0 !important;
 }
@@ -301,6 +302,7 @@ div {
     width: 50%;
     border: 1px solid black;
     justify-content: flex-start;
+    color: white;
 
     margin-top: 0 !important;
 }
@@ -310,13 +312,12 @@ div {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Allow content to wrap to the next line */
-    gap: 0.5rem; /* Add space between items */
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
   
 .apiInfo {
     padding-left: 1rem;
-    /* min-width: 10rem; */
     word-wrap: break-word;
 }
 
@@ -356,8 +357,6 @@ div {
     align-items: flex-start;
     /* max-width: 30rem; */
     font-size: 1.6rem;
-    
-
     /* border: 1px solid white; */
 }
 
@@ -368,13 +367,6 @@ div {
     margin-right: 2rem;
     
 }
-
-
-
-/* .whiteDivider {
-    border-top: 8px dotted white;
-    width: 20rem;
-} */
 
 /* Footer */
 
