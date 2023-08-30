@@ -263,7 +263,7 @@ div {
     min-height: 40rem;
     margin: 10rem auto;
 
-    border: 1px solid white;
+    /* border: 1px solid white; */
   }
   
 .statsInformation {
@@ -285,26 +285,28 @@ div {
     
     
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
   
 .statsLabel {
     width: 50%;
     margin-right: 1rem;
-    border: 1px solid yellow;
     justify-content: flex-end;
     color: rgb(236, 202, 150);
 
     margin-top: 0 !important;
+
+    /* border: 1px solid yellow; */
 }
 
 .statsUl {
     width: 50%;
-    border: 1px solid black;
     justify-content: flex-start;
     color: white;
 
     margin-top: 0 !important;
+
+    /* border: 1px solid black; */
 }
   
 .statsUl ul {
