@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let specAtt = [];
     let specDef = [];
     let pokeSpeed = [];
-    let pokeAbilit = [];
+    
 
     fetch(url)
       .then(res => res.json()) // parse response as JSON
@@ -84,6 +84,24 @@ document.addEventListener('DOMContentLoaded', function () {
         specAtt.push(data.stats[3].base_stat);
         specDef.push(data.stats[4].base_stat);
         pokeSpeed.push(data.stats[5].base_stat);
+
+        // Get the <ul> element for abilities
+        const abilitiesList = document.querySelector('.pokeAbilit');
+
+        // Clear any existing content inside the abilities list
+        abilitiesList.innerHTML = '';
+
+        // Loop through abilities and create <li> elements
+        for (let i = 0; i < data.abilities.length; i++) {
+          const abilityName = data.abilities[i].ability.name.capitalize();
+          
+          // Create a new <li> element
+          const abilityListItem = document.createElement('li');
+          abilityListItem.textContent = abilityName;
+
+          // Append the <li> element to the abilities list
+          abilitiesList.appendChild(abilityListItem);
+        }
 
 
         // Declared variable to make first letter Uppercase
@@ -107,7 +125,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.specAtt').innerHTML = specAtt;
         document.querySelector('.specDef').innerHTML = specDef;
         document.querySelector('.pokeSpeed').innerHTML = pokeSpeed;
-        document.querySelector('.pokeAbilit').innerHTML = abilityLetterCap;
+        // document.querySelector('.pokeAbilit').innerHTML = abilityLetterCap;
+
+        document.querySelector('.pokeAbilit').innerHTML = abilityNames;
 
 
 

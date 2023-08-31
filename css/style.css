@@ -277,7 +277,7 @@ div {
 .statsRow {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     margin-top: 0 !important;
     margin-bottom: 2rem;
@@ -297,6 +297,10 @@ div {
     margin-top: 0 !important;
 
     /* border: 1px solid yellow; */
+}
+
+.statsLabel h3 {
+    margin-top: 0;
 }
 
 .statsUl {
