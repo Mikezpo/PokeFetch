@@ -272,6 +272,9 @@ div {
     flex-direction: column;
     align-items: center;
     margin-top: 0 !important;
+    padding: 10rem 0;
+    border-top: 1px solid rgb(236, 202, 150);
+    border-bottom: 1px solid rgb(236, 202, 150);
 }
   
 .statsRow {
@@ -320,10 +323,11 @@ div {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    padding-left: 1rem;
 }
   
 .apiInfo {
-    padding-left: 1rem;
+    
     word-wrap: break-word;
 }
 

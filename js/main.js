@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let pokeImgShiny = [];
     
     let pokeId = [];
-    let pokeType = [];
+    
     let pokeAtt = [];
     let pokeDef = [];
 
@@ -76,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
         pokeImgShiny.push(data.sprites.other["official-artwork"].front_shiny);
         
         pokeId.push(data.id);
-        pokeType.push(data.types[0].type.name);
         pokeAtt.push(data.stats[0].base_stat);
         pokeDef.push(data.stats[1].base_stat);
 
@@ -85,6 +84,25 @@ document.addEventListener('DOMContentLoaded', function () {
         specDef.push(data.stats[4].base_stat);
         pokeSpeed.push(data.stats[5].base_stat);
 
+        // Loop through pokemon types
+        // Get the <ul> element for pokemon type
+        const pokeType = document.querySelector('.pokemonType');
+
+        // Clear any existing content inside the type list
+        pokeType.innerHTML = '';
+
+        // Loop through types and create <li> elements
+        for(let i= 0; i < data.types.length; i++) {
+          const pokemonType = data.types[i].type.name.capitalize();
+          // Create new <li> element
+          const pokemonTypeList = document.createElement('li');
+          pokemonTypeList.textContent = pokemonType;
+
+          //Append the <li> element to the type list
+          pokeType.appendChild(pokemonTypeList);
+        }
+        
+        // Loop through pokemon abilities
         // Get the <ul> element for abilities
         const abilitiesList = document.querySelector('.pokeAbilit');
 
@@ -103,11 +121,9 @@ document.addEventListener('DOMContentLoaded', function () {
           abilitiesList.appendChild(abilityListItem);
         }
 
-
         // Declared variable to make first letter Uppercase
         let firstLetterCap = `${pokemonInput}`.capitalize();
-        let typeLetterCap = data.types[0].type.name.capitalize();
-        let abilityLetterCap = data.abilities[0].ability.name.capitalize();
+        // let typeLetterCap = data.types[0].type.name.capitalize();
 
         // Pokemon Images
         document.querySelector('#pokeImg').src = pokeImg[0];
@@ -118,17 +134,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Pokemon stats
         document.querySelector('.pokemonName').innerHTML = firstLetterCap;
         document.querySelector('.pokemonId').innerHTML = pokeId;
-        document.querySelector('.pokemonType').innerHTML = typeLetterCap;
+
+        
+
         document.querySelector('.pokeAtt').innerHTML = pokeAtt;
         document.querySelector('.pokeDef').innerHTML = pokeDef;
         document.querySelector('.pokeHp').innerHTML = pokeHp;
         document.querySelector('.specAtt').innerHTML = specAtt;
         document.querySelector('.specDef').innerHTML = specDef;
         document.querySelector('.pokeSpeed').innerHTML = pokeSpeed;
-        // document.querySelector('.pokeAbilit').innerHTML = abilityLetterCap;
 
         document.querySelector('.pokeAbilit').innerHTML = abilityNames;
-
+        document.querySelector('.pokemonType').innerHTML = pokemonType;
 
 
       })
