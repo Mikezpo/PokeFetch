@@ -55,18 +55,29 @@ body {
     /* border: 1px solid blue; */
 }
 
-h1 {
+/* h1 {
     display: flex;
     padding: 0;
     margin: 0;
     max-width: 22rem;
 
-}
+} */
 
-h1 img {
+.logoImage img {
     width: 100%;
     z-index: 4;
-    
+}
+
+.footerImage {
+    width: 100%;
+}
+
+.bottomLogo {
+    margin: 0 auto;
+}
+.bottomLogo img{
+    max-width: 20rem;
+    margin: 0 auto;
 }
 
 .headerList ul {
@@ -224,7 +235,7 @@ div {
 /* Pokemon images */
 
 .pokeImagesSection {
-    width: 80rem;
+    max-width: 80rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -321,15 +332,17 @@ div {
     padding: 0;
     margin: 0;
     display: flex;
+    align-items: flex-start;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 0.5rem;
     padding-left: 1rem;
 }
-  
+
 .apiInfo {
-    
     word-wrap: break-word;
 }
+  
 
 /*  */
 
@@ -382,6 +395,7 @@ div {
 
 .footerList ul {
     display: flex;
+    padding-left: 0;
 
 }
 
@@ -397,4 +411,33 @@ div {
 .copyrightFooter a {
     text-decoration: none;
     color: black;
+    transition: 1s all ease-in-out;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+}
+
+.copyrightFooter a:hover {
+    color: white;
+    background: #00739A;
+    font-weight: 400;
+    transform: scale(1.1);
+    
+}
+
+/* Media queries */
+
+@media screen and (max-width: 860px) {
+    .pokeImagesSection, .footerList ul {
+        flex-direction: column;
+    }
+
+    .footerList ul li{
+        padding-bottom: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    
+
 }
