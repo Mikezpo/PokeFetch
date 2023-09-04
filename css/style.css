@@ -162,6 +162,10 @@ li a:hover {
     font-weight: 500;
 }
 
+.fetchInput {
+    max-width: 50rem;
+}
+
 input, button {
     display: inline-block;
     width: 25rem;
@@ -212,7 +216,6 @@ button {
     border: 1px solid rgb(236, 202, 150);
     border-radius: 0 10px 10px 0;
     cursor: pointer;
-    margin-left: -0.6%;
     
 }
 
@@ -437,7 +440,21 @@ div {
 
 }
 
-@media screen and (max-width: 650px) {
-    
+@media screen and (max-width: 680px) {
+
+    .fetchInput {
+        max-width: 25rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    input {
+        border-radius: 10px 10px 0 0;
+    }
+
+    button {
+        border-radius: 0 0 10px 10px;
+        margin-left: 0;
+    }
 
 }

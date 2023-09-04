@@ -44,17 +44,19 @@
 						
 				</div>
 
-				<!-- Generation 1 (Kanto Region), Generation 2 (Johto Region), Generation 3 (Hoenn Region), Generation 4 (Sinnoh Region), Generation 5 (Unova Region), Generation 6 (Kalos Region), Generation 7 (Alola Region), Generation 8 (Galar Region). -->
+				<!-- <!-- <p class="introText topText">In this database you can Search Pokemon from these Generations and Regions:</p>
+				<p class="introText bottomText">Generation 1 (Kanto Region), Generation 2 (Johto Region), Generation 3 (Hoenn Region), Generation 4 (Sinnoh Region), Generation 5 (Unova Region), Generation 6 (Kalos Region), Generation 7 (Alola Region), Generation 8 (Galar Region).</p> -->
 				
 				<h3 class="headerSearch">Find your Pokemon here</h3>
 
-				<input type="text" id="pokemonInput" class="inputValue" placeholder="Your Pokemon" list="pokemonList">
-				<datalist id="pokemonList"></datalist>
+				
+				<div class="fetchInput">
+					<input type="text" id="pokemonInput" class="inputValue" placeholder="Your Pokemon" list="pokemonList">
+					<datalist id="pokemonList"></datalist>
+					<button type="button" name="button">Fetch</button>
+				</div>
 
-				<!-- autocomplete scroll bar -->
-				<!-- <div id="autocompleteResults"></div> -->
 
-				<button type="button" name="button">Fetch</button>
 				<div class="pokeImagesSection">
 					<div class="pokemonImageBox">
 						<img id='pokeImg' class="pokemonImage" src="https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="">
