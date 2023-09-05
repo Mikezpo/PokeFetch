@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-    	<meta name="PokeFetch Web App" content="Pokemon stats">
-    	<meta name="keywords" content="one, two, three">
+    	<meta name="description" content="PokeFetch Web App - Pokemon stats">
+    	<meta name="keywords" content="pokemon, pokedex, stats">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>PokeFetch</title>
@@ -11,6 +11,8 @@
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
+
+		<script src="js/main.js" defer></script>
 	</head>
 	<body>
 		<header>
@@ -75,6 +77,7 @@
 					</div>
 					
 				</div>
+				<div class="errorDiv"><h3 class="errorMessage"></h3></div>
 
 				<!-- <div class="whiteDivider"></div> -->
 
@@ -112,6 +115,28 @@
 							<div class="statsUl">
 								<ul class="pokemonType">
 									<li class="apiInfo">-</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="statsRow">
+							<div class="statsLabel">
+								<h3>Generation:</h3>
+							</div>
+							<div class="statsUl">
+								<ul>
+									<li class="apiInfo pokeGen">-</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="statsRow">
+							<div class="statsLabel">
+								<h3>Region:</h3>
+							</div>
+							<div class="statsUl">
+								<ul>
+									<li class="apiInfo pokeRegion">-</li>
 								</ul>
 							</div>
 						</div>
@@ -227,10 +252,10 @@
 	  
 			<div class="footerList">
 			  <ul>
-				<li><a href="">Privacy policy</a></li>
-				<li><a href="">Use of Cookies</a></li>
-				<li><a href="">Website Terms & Conditions</a></li>
-				<li><a href="">Contact</a></li>
+				<li><a href="#">Privacy policy</a></li>
+				<li><a href="#">Use of Cookies</a></li>
+				<li><a href="#">Website Terms & Conditions</a></li>
+				<li><a href="#">Contact</a></li>
 			  </ul>
 			</div>
 	  

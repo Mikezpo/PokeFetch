@@ -9,14 +9,17 @@ for (const item of menuItems) {
   item.addEventListener('click', () => {
     // Close the menu when an item is clicked
     navbarLinks.classList.remove('active');
-    toggle.checked = false;
+    toggleButton.checked = false;
   });
 }
 
-toggleButton.addEventListener('click', () => {
-  navbarLinks.classList.toggle('active');
-});
+const toggleMenu = () => {
+  const isActive = navbarLinks.classList.toggle('active');
+  toggleButton.setAttribute('aria-expanded', isActive);
+}
 
+toggleButton.addEventListener('click', toggleMenu);
+toggleButton.addEventListener('touchstart', toggleMenu);
 
 // Close the menu when clicking outside of it
 document.addEventListener('click', (event) => {
@@ -28,6 +31,7 @@ document.addEventListener('click', (event) => {
     toggleButton.checked = false;
   }
 });
+
 
 // Testing the API values to be fetched
 
@@ -68,59 +72,61 @@ fetch(`https://pokeapi.co/api/v2/pokemon/charizard`)
       });
 
       
-// Created Object to capitalize the first letter of the input the user provides
+// Created function to capitalize strings
 
-Object.defineProperty(String.prototype, 'capitalize', {
-  value: function() {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-  },
-  enumerable: false
-});
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
 
 // Function to fetch API
 
 document.addEventListener('DOMContentLoaded', function () {
   // Function for handling the fetch and processing data
-  function getFetch() {
-    const pokemonInput = document.querySelector('#pokemonInput').value.toLowerCase();
+  function fetchPokemonData() {
+    let pokemonInput = document.querySelector('#pokemonInput').value.toLowerCase();
     const url = `https://pokeapi.co/api/v2/pokemon/${pokemonInput}`;
     let pokeStore = [];
-    let pokeImg = [];
-    let pokeImgShiny = [];
-    
-    let pokeId = [];
-    
-    let pokeAtt = [];
-    let pokeDef = [];
+    let pokeImg;
+    let pokeImgShiny;
+    let pokeId;
+    let pokeAtt;
+    let pokeDef;
+    let pokeHp;
+    let specAtt;
+    let specDef;
+    let pokeSpeed;
 
-    let pokeHp = [];
-    let specAtt = [];
-    let specDef = [];
-    let pokeSpeed = [];
-    
+    // Find the generation and region for the given Pokémon name
+    const generationAndRegion = pokemonNames.find(gen => gen.names.map(name => name.toLowerCase()).includes(pokemonInput));
+
+    const generation = generationAndRegion ? generationAndRegion.generation : 'Unknown';
+    const region = generationAndRegion ? generationAndRegion.region : 'Unknown';
+
 
     fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         pokeStore.push(data.types.map(type => type.type.name.toLowerCase()));
-        pokeImg.push(data.sprites.other["official-artwork"].front_default);
-        pokeImgShiny.push(data.sprites.other["official-artwork"].front_shiny);
+        pokeImg = data.sprites.other["official-artwork"].front_default;
+        pokeImgShiny = data.sprites.other["official-artwork"].front_shiny;
         
-        pokeId.push(data.id);
-        pokeAtt.push(data.stats[0].base_stat);
-        pokeDef.push(data.stats[1].base_stat);
+        pokeId = data.id;
+        pokeAtt = data.stats[0].base_stat;
+        pokeDef = data.stats[1].base_stat;
 
-        pokeHp.push(data.stats[2].base_stat);
-        specAtt.push(data.stats[3].base_stat);
-        specDef.push(data.stats[4].base_stat);
-        pokeSpeed.push(data.stats[5].base_stat);
+        pokeHp = data.stats[2].base_stat;
+        specAtt = data.stats[3].base_stat;
+        specDef = data.stats[4].base_stat;
+        pokeSpeed = data.stats[5].base_stat;
 
         // Loop through pokemon types
         // Get the <ul> element for pokemon type
         const pokeType = document.querySelector('.pokemonType');
 
         // Clear any existing content inside the type list
-        pokeType.innerHTML = '';
+        while (pokeType.firstChild) {
+          pokeType.removeChild(pokeType.firstChild);
+      }      
 
         // Loop through types and create <li> elements
         for(let i= 0; i < data.types.length; i++) {
@@ -141,7 +147,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const abilitiesList = document.querySelector('.pokeAbilit');
 
         // Clear any existing content inside the abilities list
-        abilitiesList.innerHTML = '';
+        
+        while (abilitiesList.firstChild) {
+          abilitiesList.removeChild(abilitiesList.firstChild);
+      }      
 
         // Loop through abilities and create <li> elements
         for (let i = 0; i < data.abilities.length; i++) {
@@ -157,42 +166,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Declared variable to make first letter Uppercase
         let firstLetterCap = `${pokemonInput}`.capitalize();
-        // let typeLetterCap = data.types[0].type.name.capitalize();
 
         // Pokemon Images
-        document.querySelector('#pokeImg').src = pokeImg[0];
-        document.querySelector('#pokeImgShiny').src = pokeImgShiny[0];
+        document.querySelector('#pokeImg').src = pokeImg;
+        document.querySelector('#pokeImgShiny').src = pokeImgShiny;
         // Pokemon name
-        document.querySelector('#pokeDefaultImg').innerHTML = firstLetterCap;
-        document.querySelector('#pokeShinyImg').innerHTML = `Shiny ` + firstLetterCap;
+        document.querySelector('#pokeDefaultImg').textContent = firstLetterCap;
+        document.querySelector('#pokeShinyImg').textContent = `Shiny ` + firstLetterCap;
         // Pokemon stats
-        document.querySelector('.pokemonName').innerHTML = firstLetterCap;
-        document.querySelector('.pokemonId').innerHTML = pokeId;
+        document.querySelector('.pokemonName').textContent = firstLetterCap;
+        document.querySelector('.pokemonId').textContent = pokeId;
+        document.querySelector('.pokeAtt').textContent = pokeAtt;
+        document.querySelector('.pokeDef').textContent = pokeDef;
+        document.querySelector('.pokeHp').textContent = pokeHp;
+        document.querySelector('.specAtt').textContent = specAtt;
+        document.querySelector('.specDef').textContent = specDef;
+        document.querySelector('.pokeSpeed').textContent = pokeSpeed;
 
-        
-
-        document.querySelector('.pokeAtt').innerHTML = pokeAtt;
-        document.querySelector('.pokeDef').innerHTML = pokeDef;
-        document.querySelector('.pokeHp').innerHTML = pokeHp;
-        document.querySelector('.specAtt').innerHTML = specAtt;
-        document.querySelector('.specDef').innerHTML = specDef;
-        document.querySelector('.pokeSpeed').innerHTML = pokeSpeed;
-
-        document.querySelector('.pokeAbilit').innerHTML = abilityNames;
-        document.querySelector('.pokemonType').innerHTML = pokeType;
-
-
+        document.querySelector('.pokeGen').textContent = generation;
+        document.querySelector('.pokeRegion').textContent = region;
       })
+
+      // Display the generation and region information
+      
+
       .catch(err => {
         console.log(`error ${err}`);
-      });
+        // document.querySelector('.errorMessage').textContent = 'An error occurred';
+    });
+    
   }
 
   // Pokemon name list
 
   const pokemonNames = [
     //gen 1
-    "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
+    { names: ["Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard",
     "Squirtle", "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree",
     "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot",
     "Rattata", "Raticate", "Spearow", "Fearow", "Ekans", "Arbok",
@@ -217,9 +226,9 @@ document.addEventListener('DOMContentLoaded', function () {
     "Eevee", "Vaporeon", "Jolteon", "Flareon", "Porygon", "Omanyte",
     "Omastar", "Kabuto", "Kabutops", "Aerodactyl", "Snorlax", "Articuno",
     "Zapdos", "Moltres", "Dratini", "Dragonair", "Dragonite", "Mewtwo",
-    "Mew",
+    "Mew",], generation: 1, region: "Kanto" },
     //gen 2
-    "Chikorita", "Bayleef", "Meganium", "Cyndaquil", "Quilava", "Typhlosion",
+    { names: ["Chikorita", "Bayleef", "Meganium", "Cyndaquil", "Quilava", "Typhlosion",
     "Totodile", "Croconaw", "Feraligatr", "Sentret", "Furret", "Hoothoot",
     "Noctowl", "Ledyba", "Ledian", "Spinarak", "Ariados", "Crobat",
     "Chinchou", "Lanturn", "Pichu", "Cleffa", "Igglybuff", "Togepi",
@@ -235,9 +244,9 @@ document.addEventListener('DOMContentLoaded', function () {
     "Kingdra", "Phanpy", "Donphan", "Porygon2", "Stantler", "Smeargle",
     "Tyrogue", "Hitmontop", "Smoochum", "Elekid", "Magby", "Miltank",
     "Blissey", "Raikou", "Entei", "Suicune", "Larvitar", "Pupitar",
-    "Tyranitar", "Lugia", "Ho-Oh", "Celebi",
+    "Tyranitar", "Lugia", "Ho-Oh", "Celebi",], generation: 2, region: "Johto" },
     //gen 3
-    "Treecko", "Grovyle", "Sceptile", "Torchic", "Combusken", "Blaziken",
+    { names: ["Treecko", "Grovyle", "Sceptile", "Torchic", "Combusken", "Blaziken",
     "Mudkip", "Marshtomp", "Swampert", "Poochyena", "Mightyena", "Zigzagoon",
     "Linoone", "Wurmple", "Silcoon", "Beautifly", "Cascoon", "Dustox",
     "Lotad", "Lombre", "Ludicolo", "Seedot", "Nuzleaf", "Shiftry",
@@ -259,9 +268,9 @@ document.addEventListener('DOMContentLoaded', function () {
     "Clamperl", "Huntail", "Gorebyss", "Relicanth", "Luvdisc", "Bagon",
     "Shelgon", "Salamence", "Beldum", "Metang", "Metagross", "Regirock",
     "Regice", "Registeel", "Latias", "Latios", "Kyogre", "Groudon",
-    "Rayquaza", "Jirachi", "Deoxys",
+    "Rayquaza", "Jirachi", "Deoxys",], generation: 3, region: "Hoenn" },
     //gen 4
-    "Turtwig", "Grotle", "Torterra", "Chimchar", "Monferno", "Infernape",
+    { names: ["Turtwig", "Grotle", "Torterra", "Chimchar", "Monferno", "Infernape",
     "Piplup", "Prinplup", "Empoleon", "Starly", "Staravia", "Staraptor",
     "Bidoof", "Bibarel", "Kricketot", "Kricketune", "Shinx", "Luxio",
     "Luxray", "Budew", "Roserade", "Cranidos", "Rampardos", "Shieldon",
@@ -278,9 +287,9 @@ document.addEventListener('DOMContentLoaded', function () {
     "Glaceon", "Gliscor", "Mamoswine", "Porygon-Z", "Gallade", "Probopass",
     "Dusknoir", "Froslass", "Rotom", "Uxie", "Mesprit", "Azelf",
     "Dialga", "Palkia", "Heatran", "Regigigas", "Giratina", "Cresselia",
-    "Phione", "Manaphy", "Darkrai", "Shaymin", "Arceus",
+    "Phione", "Manaphy", "Darkrai", "Shaymin", "Arceus",], generation: 4, region: "Sinnoh" },
     //gen 5
-    "Snivy", "Servine", "Serperior", "Tepig", "Pignite", "Emboar",
+    { names: ["Snivy", "Servine", "Serperior", "Tepig", "Pignite", "Emboar",
     "Oshawott", "Dewott", "Samurott", "Patrat", "Watchog", "Lillipup",
     "Herdier", "Stoutland", "Purrloin", "Liepard", "Pansage", "Simisage",
     "Pansear", "Simisear", "Panpour", "Simipour", "Munna", "Musharna",
@@ -305,9 +314,9 @@ document.addEventListener('DOMContentLoaded', function () {
     "Rufflet", "Braviary", "Vullaby", "Mandibuzz", "Heatmor", "Durant",
     "Deino", "Zweilous", "Hydreigon", "Larvesta", "Volcarona", "Cobalion",
     "Terrakion", "Virizion", "Tornadus", "Thundurus", "Reshiram", "Zekrom",
-    "Landorus", "Kyurem", "Keldeo", "Meloetta", "Genesect",
+    "Landorus", "Kyurem", "Keldeo", "Meloetta", "Genesect",], generation: 5, region: "Unova" },
     //gen 6
-    "Chespin", "Quilladin", "Chesnaught", "Fennekin", "Braixen", "Delphox",
+    { names: ["Chespin", "Quilladin", "Chesnaught", "Fennekin", "Braixen", "Delphox",
     "Froakie", "Frogadier", "Greninja", "Bunnelby", "Diggersby", "Fletchling",
     "Fletchinder", "Talonflame", "Scatterbug", "Spewpa", "Vivillon", "Litleo",
     "Pyroar", "Flabébé", "Floette", "Florges", "Skiddo", "Gogoat",
@@ -318,9 +327,9 @@ document.addEventListener('DOMContentLoaded', function () {
     "Amaura", "Aurorus", "Sylveon", "Hawlucha", "Dedenne", "Carbink",
     "Goomy", "Sliggoo", "Goodra", "Klefki", "Phantump", "Trevenant",
     "Pumpkaboo", "Gourgeist", "Bergmite", "Avalugg", "Noibat", "Noivern",
-    "Xerneas", "Yveltal", "Zygarde", "Diancie", "Hoopa", "Volcanion",
+    "Xerneas", "Yveltal", "Zygarde", "Diancie", "Hoopa", "Volcanion",], generation: 6, region: "Kalos" },
     //gen 7
-    "Rowlet", "Dartrix", "Decidueye", "Litten", "Torracat", "Incineroar",
+    { names: ["Rowlet", "Dartrix", "Decidueye", "Litten", "Torracat", "Incineroar",
     "Popplio", "Brionne", "Primarina", "Pikipek", "Trumbeak", "Toucannon",
     "Yungoos", "Gumshoos", "Grubbin", "Charjabug", "Vikavolt", "Crabrawler",
     "Crabominable", "Oricorio", "Cutiefly", "Ribombee", "Rockruff", "Lycanroc",
@@ -349,9 +358,9 @@ document.addEventListener('DOMContentLoaded', function () {
     "Cufant", "Copperajah", "Dracozolt", "Arctozolt", "Dracovish", "Arctovish",
     "Duraludon", "Dreepy", "Drakloak", "Dragapult", "Zacian", "Zamazenta",
     "Eternatus", "Kubfu", "Urshifu", "Zarude", "Regieleki", "Regidrago",
-    "Glastrier", "Spectrier", "Calyrex",
+    "Glastrier", "Spectrier", "Calyrex",], generation: 7, region: "Alola" },
     //gen 8
-    "Grookey", "Thwackey", "Rillaboom", "Scorbunny", "Raboot", "Cinderace",
+    { names: ["Grookey", "Thwackey", "Rillaboom", "Scorbunny", "Raboot", "Cinderace",
     "Sobble", "Drizzile", "Inteleon", "Skwovet", "Greedent", "Rookidee",
     "Corvisquire", "Corviknight", "Blipbug", "Dottler", "Orbeetle", "Nickit",
     "Thievul", "Gossifleur", "Eldegoss", "Wooloo", "Dubwool", "Chewtle",
@@ -364,29 +373,35 @@ document.addEventListener('DOMContentLoaded', function () {
     "Falinks", "Pincurchin", "Snom", "Frosmoth", "Stonjourner", "Eiscue",
     "Indeedee", "Morpeko", "Cufant", "Copperajah", "Dracozolt", "Arctozolt",
     "Dracovish", "Arctovish", "Duraludon", "Dreepy", "Drakloak", "Dragapult",
-    "Zacian", "Zamazenta", "Eternatus"
+    "Zacian", "Zamazenta", "Eternatus"], generation: 8, region: "Galar" },
 ];
 
 const pokemonList = document.getElementById("pokemonList");
 
-pokemonNames.forEach(name => {
+// Loop through each generation
+pokemonNames.forEach(generation => {
+  // Loop through each Pokémon name in the generation
+  generation.names.forEach(pokemonName => {
     const option = document.createElement("option");
-    option.value = name;
+    option.value = pokemonName; // Set the value to the Pokémon name
+    option.textContent = pokemonName; // Set the displayed text to the Pokémon name
     pokemonList.appendChild(option);
+  });
 });
+
 
 // EVENT LISTENERS
 
 // Add event listener to the "Fetch" button
 const compareButton = document.querySelector('button[name="button"]');
-compareButton.addEventListener('click', getFetch);
+compareButton.addEventListener('click', fetchPokemonData);
 
 // Add event listeners to all elements with class 'inputValue' for pressing "Enter"
 const inputValues = document.querySelectorAll('.inputValue');
 inputValues.forEach(inputValue => {
   inputValue.addEventListener('keypress', function (event) {
     if (event.key === 'Enter') {
-      getFetch();
+      fetchPokemonData();
     }
   });
 });

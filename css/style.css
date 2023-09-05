@@ -278,6 +278,20 @@ div {
     
 }
 
+/* Error message */
+.errorDiv {
+    padding: 0;
+    margin: 0 !important;
+    width: 100%;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
 /*  */
 
 .statsSection {
@@ -406,7 +420,7 @@ div {
   
   /* Flying Type */
 .type-flying {
-    background-color: #7581FF;
+    background-color: #626cda;
 }
   
   /* Psychic Type */
