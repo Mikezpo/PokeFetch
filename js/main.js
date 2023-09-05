@@ -129,6 +129,9 @@ document.addEventListener('DOMContentLoaded', function () {
           const pokemonTypeList = document.createElement('li');
           pokemonTypeList.textContent = pokemonType;
 
+          // Add a class to the <li> element based on the type
+          pokemonTypeList.classList.add(`type-${pokemonType.toLowerCase()}`);
+
           //Append the <li> element to the type list
           pokeType.appendChild(pokemonTypeList);
         }
@@ -176,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.pokeSpeed').innerHTML = pokeSpeed;
 
         document.querySelector('.pokeAbilit').innerHTML = abilityNames;
-        document.querySelector('.pokemonType').innerHTML = pokemonType;
+        document.querySelector('.pokemonType').innerHTML = pokeType;
 
 
       })

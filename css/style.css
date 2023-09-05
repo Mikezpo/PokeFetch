@@ -32,9 +32,6 @@ body {
     margin: 0 auto;
     padding: 3rem 0 0 0;
     height: auto;
-
-    
-    /* border: 1px solid red; */
 }
 
 .headerTitle {
@@ -42,8 +39,6 @@ body {
     justify-content: flex-start;
     margin: 0 0 0 4rem;
     padding: 0;
-
-    /* border: 1px solid blue; */
 }
 
 .headerList {
@@ -51,8 +46,6 @@ body {
     margin: 0;
     justify-content: flex-end;
     align-items: center;
-
-    /* border: 1px solid blue; */
 }
 
 .logoImage img {
@@ -86,7 +79,6 @@ body {
 }
 
 ul li {
-    /* margin-right: 2rem; */
     list-style: none;
     font-size: 2rem;
     font-weight: 600;
@@ -246,7 +238,6 @@ button:hover {
 }
 
 div {
-    /* height: 50rem; */
     width: 90%;
     margin: 5.6rem auto 0;
     display: flex;
@@ -295,9 +286,7 @@ div {
     align-items: center;
     min-height: 40rem;
     margin: 10rem auto;
-
-    /* border: 1px solid white; */
-  }
+}
   
 .statsInformation {
     width: 50rem;
@@ -318,12 +307,7 @@ div {
     margin-top: 0 !important;
     margin-bottom: 2rem;
     font-size: 1.8rem;
-
     text-align: right;
-    
-    
-
-    /* border: 1px solid red; */
 }
   
 .statsLabel {
@@ -331,10 +315,7 @@ div {
     margin-right: 1rem;
     justify-content: flex-end;
     color: rgb(236, 202, 150);
-
     margin-top: 0 !important;
-
-    /* border: 1px solid yellow; */
 }
 
 .statsLabel h3 {
@@ -347,10 +328,7 @@ div {
     align-items: flex-end;
     color: white;
     height: 100%;
-
     margin-top: 0 !important;
-
-    /* border: 1px solid black; */
 }
   
 .statsUl ul {
@@ -368,9 +346,109 @@ div {
 .apiInfo {
     word-wrap: break-word;
 }
-  
 
-/*  */
+.type-normal, .type-fire, .type-water, .type-electric, .type-grass, .type-ice, .type-fighting, .type-poison, .type-ground, .type-flying, .type-psychic, .type-bug, .type-rock, .type-ghost, .type-dragon, .type-dark, .type-steel, .type-fairy {
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+}
+
+/* Normal Type */
+.type-normal {
+    background-color: #A8A77A;
+
+}
+  
+  /* Fire Type */
+.type-fire {
+    background-color: #EE8130;
+
+}
+  
+  /* Water Type */
+.type-water {
+    background-color: #6390F0;
+
+}
+  
+  /* Electric Type */
+.type-electric {
+    background-color: #F7D02C;
+
+}
+  
+  /* Grass Type */
+.type-grass {
+    background-color: #7AC74C;
+
+}
+  
+  /* Ice Type */
+.type-ice {
+    background-color: #96D9D6;
+
+}
+  
+  /* Fighting Type */
+.type-fighting {
+    background-color: #C22E28;
+
+}
+  
+  /* Poison Type */
+.type-poison {
+    background-color: #A33EA1;
+}
+  
+  /* Ground Type */
+.type-ground {
+    background-color: #E2BF65;
+}
+  
+  /* Flying Type */
+.type-flying {
+    background-color: #7581FF;
+}
+  
+  /* Psychic Type */
+.type-psychic {
+    background-color: #F95587;
+}
+  
+  /* Bug Type */
+.type-bug {
+    background-color: #A6B91A;
+}
+  
+  /* Rock Type */
+.type-rock {
+    background-color: #B6A136;
+}
+  
+  /* Ghost Type */
+.type-ghost {
+    background-color: #735797;
+}
+  
+  /* Dark Type */
+.type-dark {
+    background-color: #705746;
+}
+  
+  /* Steel Type */
+.type-steel {
+    background-color: #B7B7CE;
+}
+  
+  /* Fairy Type */
+.type-fairy {
+    background-color: #D685AD;
+}
+  
+  /* Dragon Type */
+.type-dragon {
+    background-color: #6F35FC;
+}
+
 
 .pokemonDiv {
     background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
@@ -386,7 +464,6 @@ div {
 /* Stats */
 
 .statsTopDiv {
-    /* max-width: 80rem; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -394,27 +471,6 @@ div {
     text-align: center;
     margin-top: 4rem;
     color: white;
-
-    /* border: 1px solid red; */
-
-}
-
-.statsLeftBox, .statsRightBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    /* max-width: 30rem; */
-    font-size: 1.6rem;
-    /* border: 1px solid white; */
-}
-
-.statsLeftBox {
-    justify-content: center;
-    align-items: flex-end;
-    color: rgb(236, 202, 150);
-    margin-right: 2rem;
-    
 }
 
 /* Footer */
@@ -437,15 +493,14 @@ div {
 .copyrightFooter a {
     text-decoration: none;
     color: black;
-    transition: 1s all ease-in-out;
-    padding: 1rem 0.5rem;
-    border-radius: 10px;
+    transition: 0.6s all ease-in-out;
+    padding-bottom: 0.5rem;
 }
 
 .copyrightFooter a:hover {
-    color: white;
-    background: #00739A;
-    font-weight: 400;
+    color: #00739A;
+    border-bottom: 1px solid #00739A;
+    font-weight: bold;
     transform: scale(1.1);
     
 }
@@ -467,8 +522,6 @@ div {
 
     .headerFlex {
         display: inline-block;
-        /* height: 100%; */
-        /* margin: 0 2rem; */
     }
 
     .topLogo {
@@ -481,7 +534,6 @@ div {
         display: none;
         padding: 0;
         text-align: center;
-        /* padding: 10rem auto 0; */
         margin: 0 auto;
         width: 100%;
         transition: all 1s ease-in-out;
@@ -504,9 +556,6 @@ div {
         flex-direction: column;
         height: auto;
         background: white;
-
-        
-
         border-top: 2px solid #00739A;
     }
     
