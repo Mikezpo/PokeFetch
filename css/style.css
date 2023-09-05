@@ -55,14 +55,6 @@ body {
     /* border: 1px solid blue; */
 }
 
-/* h1 {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    max-width: 22rem;
-
-} */
-
 .logoImage img {
     width: 100%;
     z-index: 4;
@@ -80,6 +72,8 @@ body {
     margin: 0 auto;
 }
 
+/* Nav */
+
 .headerList ul {
     display: flex;
     flex-direction: row;
@@ -89,8 +83,6 @@ body {
     padding: 0;
     width: 70%;
     background: none;
-
-
 }
 
 ul li {
@@ -114,6 +106,33 @@ li a:hover {
     transform: scale(1.05);
     background-color: #00739A;
     color: white;
+}
+
+.navButton {
+    position: absolute;
+    top: 3.5rem;
+    right: 2.2rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    z-index: 10;
+
+}
+  
+.navButton .bar {
+    height: 3px;
+    width: 100%;
+    background: #00739A;
+    border-radius: 10px;
+
+    
+}
+  
+.navButton:hover{
+    transform: scale(1.1);
+    transition: all 0.5s ease;
 }
 
 /* MAIN */
@@ -299,6 +318,8 @@ div {
     margin-top: 0 !important;
     margin-bottom: 2rem;
     font-size: 1.8rem;
+
+    text-align: right;
     
     
 
@@ -323,7 +344,9 @@ div {
 .statsUl {
     width: 50%;
     justify-content: flex-start;
+    align-items: flex-end;
     color: white;
+    height: 100%;
 
     margin-top: 0 !important;
 
@@ -441,6 +464,65 @@ div {
 }
 
 @media screen and (max-width: 680px) {
+
+    .topLogo {
+        position: absolute;
+        width: 19rem;
+        left: 2rem;
+    }
+
+    .navLinks {
+        display: none;
+        flex-direction: column;
+        padding: 0;
+        text-align: center;
+        width: 100%;
+        margin: 20rem auto 0 auto;
+    }
+    
+    .navBar ul {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .navLinks.active{
+        padding: 12rem 0 3rem 0;
+        background: white;
+    }
+    
+    .navLinks.active li {
+        text-align: center;
+        margin: 0.6rem auto;
+    }
+    
+    .navLinks.active li a {
+        padding: 1rem;
+    }
+    
+    .navLinks.active {
+        display: flex;
+    }
+    
+    .navLinks span {
+        display: none;
+    }
+    
+    .navButton {
+        display: flex;
+        margin: 1rem 0;
+    }
+    
+    .navButton:hover {
+        border: none;
+    }
+
+    .mainPokeSection {
+        margin: 8rem 2rem 2rem;
+    }
+
+    .introText {
+        padding: 0 2rem 2rem;
+    }
 
     .fetchInput {
         max-width: 25rem;

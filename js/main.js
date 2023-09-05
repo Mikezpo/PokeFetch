@@ -1,6 +1,37 @@
+// NAVBAR
+
+const toggleButton = document.getElementsByClassName('navButton')[0];
+const navbarLinks = document.getElementsByClassName('navLinks')[0];
+
+// Add click event listener to each menu item
+const menuItems = document.querySelectorAll('.menu-list a');
+for (const item of menuItems) {
+  item.addEventListener('click', () => {
+    // Close the menu when an item is clicked
+    navbarLinks.classList.remove('active');
+    toggle.checked = false;
+  });
+}
+
+toggleButton.addEventListener('click', () => {
+  navbarLinks.classList.toggle('active');
+});
+
+
+// Close the menu when clicking outside of it
+document.addEventListener('click', (event) => {
+  const isClickInsideMenu = navbarLinks.contains(event.target);
+  const isClickOnButton = event.target === toggleButton;
+
+  if (!isClickInsideMenu && !isClickOnButton) {
+    navbarLinks.classList.remove('active');
+    toggleButton.checked = false;
+  }
+});
+
 // Testing the API values to be fetched
 
-fetch(`https://pokeapi.co/api/v2/pokemon/bisharp`)
+fetch(`https://pokeapi.co/api/v2/pokemon/charizard`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data.species.name);
