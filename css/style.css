@@ -49,7 +49,7 @@ body {
 }
 
 .logoImage img {
-    width: 100%;
+    max-width: 20rem;
     z-index: 4;
 }
 
@@ -141,7 +141,7 @@ li a:hover {
     font-size: 3rem;
     padding: 8rem 0 0 0;
     
-    color: #EFFFFA;
+    color: #FFC1A1;
 }
 
 .introText {
@@ -168,9 +168,9 @@ li a:hover {
 .headerSearch {
     padding: 0;
     margin-bottom: 4rem;
-    color: white;
-    font-size: 2rem;
-    font-weight: 500;
+    color: #FFC1A1;
+    font-size: 2.2rem;
+    font-weight: 600;
 }
 
 .fetchInput {
@@ -193,7 +193,7 @@ input, button {
 
 input {
     border-radius: 10px 0 0 10px;
-    border: 1px solid rgb(236, 202, 150);
+    border: 1px solid #FFC1A1;
     background: none;
     color: white;
 }
@@ -207,13 +207,15 @@ input {
 }
 
 input:focus {
-    border: 1px solid rgb(236, 202, 150);
-    box-shadow: 5px 0 10px rgb(236, 202, 150);
+    border: 1px solid #FFC1A1;
+    outline: none;
+    box-shadow: 5px 0 10px #FFC1A1;
     background: white;
     background-image: url('searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding-left: 40px;
+
 }
 
 input[type=text]:focus {
@@ -223,8 +225,8 @@ input[type=text]:focus {
 button {
     font-weight: bold;
     color: #00739A;
-    background: rgb(236, 202, 150);
-    border: 1px solid rgb(236, 202, 150);
+    background: #FFC1A1;
+    border: 1px solid #FFC1A1;
     border-radius: 0 10px 10px 0;
     cursor: pointer;
     
@@ -233,8 +235,8 @@ button {
 button:hover {    
     background: white;
     color: #00739A;
-    border: 1px solid rgb(236, 202, 150);
-    box-shadow: 5px 0 10px rgb(236, 202, 150);
+    border: 1px solid #FFC1A1;
+    box-shadow: 5px 0 10px #FFC1A1;
 }
 
 div {
@@ -309,8 +311,8 @@ div {
     align-items: center;
     margin-top: 0 !important;
     padding: 10rem 0;
-    border-top: 1px solid rgb(236, 202, 150);
-    border-bottom: 1px solid rgb(236, 202, 150);
+    border-top: 1px solid #FFC1A1;
+    border-bottom: 1px solid #FFC1A1;
 }
   
 .statsRow {
@@ -328,7 +330,7 @@ div {
     width: 50%;
     margin-right: 1rem;
     justify-content: flex-end;
-    color: rgb(236, 202, 150);
+    color: #FFC1A1;
     margin-top: 0 !important;
 }
 
@@ -540,7 +542,7 @@ div {
 
     .topLogo {
         position: absolute;
-        width: 19rem;
+        max-width: 19rem;
         left: 2rem;
     }
 
