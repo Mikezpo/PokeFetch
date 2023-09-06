@@ -3,7 +3,7 @@ PokeFetch uses the Pokemon API to retrieve stats.
 
 
 # PokeFetch Web Application
-Welcome to PokeFetch, your gateway to the captivating world of Pokémon! PokeFetch is a simple and fun Web Application that allows you to delve into the Pokémon universe by fetching valuable information about your favorite Pokémon.
+Welcome to PokeFetch, your gateway to the captivating world of Pokémon! PokeFetch is a simple and fun Web Application that allows you to explore the Pokémon universe by fetching valuable information about your favorite Pokémon.
 
 
 ## Key Features
