@@ -28,12 +28,20 @@ body {
     display: none !important;
 }
 
+header,
+main,
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 0px 50px;
+}
+
 /* HEADER */
 
 .headerFlex {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin: 0 auto;
     padding: 3rem 0 0 0;
@@ -41,9 +49,9 @@ body {
 }
 
 .headerTitle {
-    width: 30%;
+    width: 200px;
+    margin-bottom: 40px;
     justify-content: flex-start;
-    margin: 0 0 0 4rem;
     padding: 0;
 }
 
@@ -61,6 +69,7 @@ body {
 
 .footerImage {
     width: 100%;
+    margin-top: 40px;
 }
 
 .bottomLogo {
@@ -95,8 +104,7 @@ li a {
     color:#00739A;
     padding: 1.4rem 2rem;
     border-radius: 10px;
-    transition-duration: 1s;
-    transition-timing-function: ease-in-out;
+    transition: all 0.3s ease-in-out;
 
 }
 
@@ -116,7 +124,6 @@ li a:hover {
     width: 30px;
     height: 21px;
     z-index: 10;
-
 }
   
 .navButton .bar {
@@ -124,23 +131,31 @@ li a:hover {
     width: 100%;
     background: #00739A;
     border-radius: 10px;
-
-    
 }
   
 .navButton:hover{
     transform: scale(1.1);
-    transition: all 0.5s ease;
+    transition: all 0.3s ease-in-out;
 }
 
 /* MAIN */
 
+.main-outer-layer {
+    width: 100%;
+    max-width: 1400px;
+    padding: 4px;
+}
+
+.mainPokeSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .mainPokeSection, .pokemonStatsSection {
     height: 100%;
-    margin: 0 4rem;
     background: #00739A;
     border-radius: 10px;
-    
 }
 
 .introHeader {
@@ -180,19 +195,19 @@ li a:hover {
 }
 
 .fetchInput {
-    max-width: 50rem;
+    width: 60rem;
+    margin-bottom: 30px;
 }
 
 input, button {
     display: inline-block;
-    width: 25rem;
+    width: 50%;
     text-align: center;
     margin: 0 auto;
     font-size: 1.6rem;
     font-weight: 600;
     padding: 1rem;
-    transition-duration: 1s;
-    transition-timing-function: ease-in-out;
+    transition: all 0.3s ease-in-out;
     z-index: 2;
     position: relative;
 }
@@ -246,8 +261,6 @@ button:hover {
 }
 
 div {
-    width: 90%;
-    margin: 5.6rem auto 0;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -256,10 +269,11 @@ div {
 /* Pokemon images */
 
 .pokeImagesSection {
-    max-width: 80rem;
+    width: 60rem;
+    gap: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -311,7 +325,7 @@ div {
 }
   
 .statsInformation {
-    width: 50rem;
+    width: 60rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -322,6 +336,7 @@ div {
 }
   
 .statsRow {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -475,6 +490,7 @@ div {
 .pokemonDiv {
     background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
     height: 40rem;
+    width: 100%;
     max-width: 40rem;
     background-position: center;
     background-size: cover;
@@ -515,16 +531,14 @@ div {
 .copyrightFooter a {
     text-decoration: none;
     color: black;
-    transition: 0.6s all ease-in-out;
+    transition: all 0.3s ease-in-out;
     padding-bottom: 0.5rem;
+    border-bottom: 1px solid white;
 }
 
 .copyrightFooter a:hover {
     color: #00739A;
     border-bottom: 1px solid #00739A;
-    font-weight: bold;
-    transform: scale(1.1);
-    
 }
 
 /* Media queries */
@@ -558,7 +572,7 @@ div {
         text-align: center;
         margin: 0 auto;
         width: 100%;
-        transition: all 1s ease-in-out;
+        transition: all 0.3s ease-in-out;
     }
     
     .headerList ul {
@@ -608,7 +622,7 @@ div {
     }
 
     .mainPokeSection {
-        margin: 8rem 2rem 2rem;
+        margin: 8rem 0;
     }
 
     .introText {

@@ -3,6 +3,8 @@
 const toggleButton = document.getElementsByClassName('navButton')[0];
 const navbarLinks = document.getElementsByClassName('navLinks')[0];
 
+toggleButton.checked = false;
+
 // Add click event listener to each menu item
 const menuItems = document.querySelectorAll('.menu-list a');
 for (const item of menuItems) {
@@ -43,7 +45,9 @@ fetch(`https://pokeapi.co/api/v2/pokemon/charizard`)
         console.log(data.types[0].type.name);
         // it gives error when allowing more than one type since some pokemons only have one type
         // create for loop conditional to check if another pokemon type is present
-        // console.log(data.types[1].type.name);
+        if (data.types[1]) {
+          console.log(data.types[1].type.name);
+        }        
         console.log(data.stats[0].stat.name);
         console.log(data.stats[0].base_stat);
         console.log(data.stats[1].stat.name);
