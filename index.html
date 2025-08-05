@@ -5,263 +5,280 @@
 
 -->
 
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    	<meta charset="utf-8">
-    	<meta name="description" content="PokeFetch Web App - Pokemon stats">
-    	<meta name="keywords" content="pokemon, pokedex, stats">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="PokeFetch Web App - Pokemon stats" />
+    <meta name="keywords" content="pokemon, pokedex, stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<title>PokeFetch</title>
+    <title>PokeFetch</title>
 
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
+    <!-- external CSS link -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-		<script src="js/main.js" defer></script>
-	</head>
-	<body>
-		<header>
-			<section class="main-outer-layer">
-				<div class="headerFlex">
-					<div class="headerTitle">
-						<!-- <h1><img src="images/Poke.jpg" alt=""></h1> -->
-	
-						<a class="logoImage topLogo" href="index.html"><img src="images/Poke.jpg" alt=""></a>
-					</div>
-					<div class="headerList navLinks">
-						<ul>
-							<li class="menu-list a"><a href="">Pokemon types</a></li>
-							<li class="menu-list a"><a href="">Option 2</a></li>
-							
-						</ul>
-					</div>
-	
-					<a href="javascript:void(0)" class="navButton">
-						<span class="bar"></span>
-						<span class="bar"></span>
-						<span class="bar"></span>
-					</a>
-	
-				</div>
-			</section>
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <section class="main-outer-layer">
+        <div class="headerFlex">
+          <div class="headerTitle">
+            <!-- <h1><img src="images/Poke.jpg" alt=""></h1> -->
 
-		</header>
-		<main>
-			<section class="main-outer-layer main-section">
-				<div class="mainPokeSection">
+            <a class="logoImage topLogo" href="index.html"
+              ><img src="images/logo-pokefetch.png" alt=""
+            /></a>
+          </div>
+          <div class="headerList navLinks">
+            <ul>
+              <li class="menu-list a"><a href="">Pokemon types</a></li>
+              <li class="menu-list a"><a href="">Option 2</a></li>
+            </ul>
+          </div>
 
-					<h2 class="introHeader">Welcome to PokeFetch!</h2>
-				
-	
-					<p class="introText topText">Get ready to immerse yourself in the captivating world of Pokémon through our extensive Database as your gateway to a vast collection of information, encompassing all Pokémon from Generation 1 up to Generation 8.</p>
-					<p class="introText">Discover the intriguing details, evolutions, and types of these fascinating creatures. From the iconic classics of Generation 1 to the fresh faces of Generation 8, your journey starts here. Our user-friendly interface lets you dive deep into the Pokémon universe, making it easy to search by name.</p>
-					<p class="introText bottomText">Whether you're on a quest to complete your Pokédex, relive cherished memories, or setting out on your first adventure, the PokeFetch Database will be your companion throughout.</p>
-	
-					<div class="pokemonDiv">
-							
-					</div>
-					
-					<h3 class="headerSearch">Search for Your Favorite Pokémon Below!</h3>
-	
-					
-					<div class="fetchInput">
-						<input type="text" id="pokemonInput" class="inputValue" placeholder="Your Pokemon" list="pokemonList">
-						<datalist id="pokemonList"></datalist>
-						<button type="button" name="button">Fetch</button>
-					</div>
-	
-	
-					<div class="pokeImagesSection">
-						<div class="pokemonImageBox">
-							<img id='pokeImg' class="pokemonImage" src="https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="">
-							<span id="pokeDefaultImg" class="pokemonDefault"></span>
-						</div>
-						<div class="pokemonImageBox">
-							<img id='pokeImgShiny' class="pokemonImage" src="https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="">
-							<span id="pokeShinyImg" class="pokemonShiny"></span>
-						</div>
-						
-					</div>
-					<div class="errorDiv"><h3 class="errorMessage"></h3></div>
-	
-					<!-- <div class="whiteDivider"></div> -->
-	
-					<!--  -->
-					<div class="statsSection">
-						<div class="statsInformation">
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Name:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo pokemonName">-</li>
-										
-									</ul>
-								</div>
-							</div>						
-							
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>ID:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo pokemonId">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Type:</h3>
-								</div>
-								<div class="statsUl">
-									<ul class="pokemonType">
-										<li class="apiInfo">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Generation:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo pokeGen">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Region:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo pokeRegion">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Attack:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo pokeAtt">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Defence:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo pokeDef">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>HP:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo pokeHp">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Spec. Att:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo specAtt">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Spec. Def:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo specDef">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Speed:</h3>
-								</div>
-								<div class="statsUl">
-									<ul>
-										<li class="apiInfo pokeSpeed">-</li>
-									</ul>
-								</div>
-							</div>
-	
-							<div class="statsRow">
-								<div class="statsLabel">
-									<h3>Abilities:</h3>
-								</div>
-								<div class="statsUl">
-									<ul class="pokeAbilit">
-										<li class="apiInfo">-</li>
-									</ul>
-								</div>
-							</div>
-	
-						</div>
-					</div>
-				</div>
-			</section>
+          <a href="javascript:void(0)" class="navButton">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="main-outer-layer main-section">
+        <div class="mainPokeSection">
+          <h2 class="introHeader">Welcome to PokeFetch!</h2>
 
-				
-		</main>
-		
-		<footer>
-			<section class="main-outer-layer">
-				<div class="footerImage">
-					<a class="logoImage bottomLogo" href="index.html"><img src="images/Poke.jpg" alt=""></a>
-				</div>
-		  
-				<div class="footerList">
-				  <ul>
-					<li><a href="#">Privacy policy</a></li>
-					<li><a href="#">Use of Cookies</a></li>
-					<li><a href="#">Website Terms & Conditions</a></li>
-					<li><a href="#">Contact</a></li>
-				  </ul>
-				</div>
-		  
-				<div class="copyright">
-				  <span translate="no" class="copyrightFooter"
-					>Copyright &copy; PokeFetch 2023 | All rights reserved | Code and Design
-					by:<a href="https://joseoliveira.netlify.app/"
-					  >&nbsp;José Oliveira</a
-					></span>
-				</div>
-			</section>
+          <p class="introText topText">
+            Get ready to immerse yourself in the captivating world of Pokémon
+            through our extensive Database as your gateway to a vast collection
+            of information, encompassing all Pokémon from Generation 1 up to
+            Generation 8.
+          </p>
+          <p class="introText">
+            Discover the intriguing details, evolutions, and types of these
+            fascinating creatures. From the iconic classics of Generation 1 to
+            the fresh faces of Generation 8, your journey starts here. Our
+            user-friendly interface lets you dive deep into the Pokémon
+            universe, making it easy to search by name.
+          </p>
+          <p class="introText bottomText">
+            Whether you're on a quest to complete your Pokédex, relive cherished
+            memories, or setting out on your first adventure, the PokeFetch
+            Database will be your companion throughout.
+          </p>
 
-		  </footer>
-		
-		
+          <div class="pokemonDiv"></div>
 
-		<script type="text/javascript" src="js/main.js"></script>
-	</body>
+          <h3 class="headerSearch">Search for Your Favorite Pokémon Below!</h3>
+
+          <div class="fetchInput">
+            <input
+              type="text"
+              id="pokemonInput"
+              class="inputValue"
+              placeholder="Your Pokemon"
+              list="pokemonList"
+            />
+            <datalist id="pokemonList"></datalist>
+            <button type="button" name="button">Fetch</button>
+          </div>
+
+          <div class="pokeImagesSection">
+            <div class="pokemonImageBox">
+              <img
+                id="pokeImg"
+                class="pokemonImage"
+                src="https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                alt=""
+              />
+              <span id="pokeDefaultImg" class="pokemonDefault"></span>
+            </div>
+            <div class="pokemonImageBox">
+              <img
+                id="pokeImgShiny"
+                class="pokemonImage"
+                src="https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                alt=""
+              />
+              <span id="pokeShinyImg" class="pokemonShiny"></span>
+            </div>
+          </div>
+          <div class="errorDiv"><h3 class="errorMessage"></h3></div>
+
+          <!-- <div class="whiteDivider"></div> -->
+
+          <!--  -->
+          <div class="statsSection">
+            <div class="statsInformation">
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Name:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo pokemonName">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>ID:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo pokemonId">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Type:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul class="pokemonType">
+                    <li class="apiInfo">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Generation:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo pokeGen">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Region:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo pokeRegion">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Attack:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo pokeAtt">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Defence:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo pokeDef">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>HP:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo pokeHp">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Spec. Att:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo specAtt">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Spec. Def:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo specDef">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Speed:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul>
+                    <li class="apiInfo pokeSpeed">-</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="statsRow">
+                <div class="statsLabel">
+                  <h3>Abilities:</h3>
+                </div>
+                <div class="statsUl">
+                  <ul class="pokeAbilit">
+                    <li class="apiInfo">-</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section class="main-outer-layer">
+        <div class="footerImage">
+          <a class="logoImage bottomLogo" href="index.html"
+            ><img src="images/Poke.jpg" alt=""
+          /></a>
+        </div>
+
+        <div class="footerList">
+          <ul>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Use of Cookies</a></li>
+            <li><a href="#">Website Terms & Conditions</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="copyright">
+          <span translate="no" class="copyrightFooter"
+            >Copyright &copy; PokeFetch 2025 | All rights reserved | Code and
+            Design by:<a href="https://joseoliveira.netlify.app/"
+              >&nbsp;José Oliveira</a
+            ></span
+          >
+        </div>
+      </section>
+    </footer>
+
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
 </html>
