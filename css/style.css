@@ -33,7 +33,7 @@ h6 {
 
 :root {
     --charcoal-black: #0d0d0d;
-    --deep-charcoal: #1a1a1a;
+    --deep-charcoal: #131315;
     --light-beije: #f5f5dc;
     --soft-orange: #ff914d;
     --vibrant-orange: #ff7b29;
@@ -58,6 +58,7 @@ footer {
     display: flex;
     justify-content: center;
     padding: 0px 50px;
+    background: var(--charcoal-black);
 }
 
 /* HEADER */
@@ -68,9 +69,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    padding: 3rem 0 0 0;
+    padding: 2rem 0;
     height: auto;
-    margin-bottom: 40px;
 }
 
 .headerTitle {
@@ -135,7 +135,7 @@ ul li {
 
 li a {
     text-decoration: none;
-    color:#00739A;
+    color: var(--vibrant-orange);
     padding: 1.4rem 2rem;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
@@ -179,10 +179,10 @@ li a:hover {
     max-width: 1400px;
 }
 
-.main-section {
+/* .main-section {
     padding: 4px;
     border: 1px solid #00739A;
-}
+} */
 
 .mainPokeSection {
     display: flex;
@@ -192,15 +192,14 @@ li a:hover {
 
 .mainPokeSection, .pokemonStatsSection {
     height: 100%;
-    background: #00739A;
+    background: var(--deep-charcoal);
     /* border-radius: 10px; */
 }
 
 .introHeader {
     font-size: 3rem;
     padding: 8rem 0 0 0;
-    
-    color: #FFC1A1;
+    color: var(--vibrant-orange);
 }
 
 .introText {
@@ -211,7 +210,7 @@ li a:hover {
     max-width: 140rem;
     text-align: center;
     margin: 0 auto;
-    color: white;
+    color: var(--light-beije);
 }
 
 .topText {
@@ -227,7 +226,7 @@ li a:hover {
 .headerSearch {
     padding: 0;
     margin-bottom: 4rem;
-    color: #FFC1A1;
+    color: var(--vibrant-orange);
     font-size: 2.2rem;
     font-weight: 600;
 }
@@ -252,7 +251,7 @@ input, button {
 
 input {
     border-radius: 10px 0 0 10px;
-    border: 1px solid #FFC1A1;
+    border: 1px solid var(--vibrant-orange);
     background: none;
     color: white;
 }
@@ -266,10 +265,10 @@ input {
 }
 
 input:focus {
-    border: 1px solid #FFC1A1;
+    border: 1px solid var(--soft-orange);
     outline: none;
     box-shadow: 5px 0 10px #FFC1A1;
-    background: white;
+    background: var(--light-beije);
     background-image: url('searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
@@ -278,14 +277,14 @@ input:focus {
 }
 
 input[type=text]:focus {
-    color: #00739A;
+    color: var(--soft-orange);
 }
 
 button {
     font-weight: bold;
-    color: #00739A;
-    background: #FFC1A1;
-    border: 1px solid #FFC1A1;
+    color: var(--light-beije);
+    background: var(--vibrant-orange);
+    border: 1px solid var(--vibrant-orange);
     border-radius: 0 10px 10px 0;
     cursor: pointer;
     
@@ -526,14 +525,20 @@ div {
 
 
 .pokemonDiv {
-    background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');
-    height: 40rem;
-    width: 100%;
-    max-width: 40rem;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    /* background: url('https://images.unsplash.com/photo-1531525797753-909788106ccb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80'); */
+    height: 400px;
+    width: 400px;
     margin-bottom: 4rem;
+    position: relative;
+}
+
+.gameboy-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 
@@ -564,14 +569,13 @@ div {
 .copyrightFooter {
     font-weight: 500;
     margin-bottom: 4rem;
+    color: white;
 }
 
 .copyrightFooter a {
     text-decoration: none;
-    color: black;
+    color: white;
     transition: all 0.3s ease-in-out;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid white;
 }
 
 .copyrightFooter a:hover {
