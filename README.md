@@ -1,34 +1,51 @@
 # PokeFetch
-PokeFetch uses the Pokemon API to retrieve stats.
 
+A Pokémon discovery website built with HTML, CSS, and JavaScript. No framework, build step, or package installation is required.
 
-# PokeFetch Web Application
-Welcome to PokeFetch, your gateway to the captivating world of Pokémon! PokeFetch is a simple and fun Web Application that allows you to explore the Pokémon universe by fetching valuable information about your favorite Pokémon.
+## Pages
 
+- **Home** — search, featured Pokémon, and introductions to the regions.
+- **Stats Check** (`stats.html`) — a Pokémon profile with regular/shiny artwork, named Mega Evolution controls where available, an English Pokédex entry, abilities, height, weight, all six base stats, and its evolution family.
+- **Pokédex** (`pokedex.html`) — browse all Pokémon species or choose a generation, search by name or number, and move through paginated results.
+- **Generations & Regions** (`generations.html`) — nine illustrated regional maps, live Pokémon counts, generation browsing links, and a full-map viewer.
 
-## Key Features
-- Pokémon Image Retrieval: Enter the names of a Pokémon in the input box, to retrieve the Default and Shiny varient of each one.
-- Comprehensive Pokémon Data: PokeFetch fetches additional information about the Pokémon, including their types, abilities, and various stats.
-- Explore to Your Heart's Content: With a vast library of Pokémon data at your disposal, enjoy exploring numerous Pokémon and discovering their unique traits.
+Profiles remain hidden until a Pokémon is successfully selected. Profiles and generation filters support direct links, for example:
 
+- `stats.html?pokemon=grookey`
+- `stats.html?pokemon=charizard-mega-x`
+- `pokedex.html?generation=8&search=grookey`
+- `generations.html#region-galar`
 
-## Upcoming Features
-- Pokédex Expansion: Expanding the Pokémon database to include more Pokémon from Generation 9.
-- Battle Stats Comparison: Enabling a side-by-side comparison of Pokémon stats, empowering you to strategize for battles or team-building exercises.
-- Favorite Pokémon List: Allowing users to create and manage their favorite Pokémon list for easy access to their most beloved creatures.
+Select a named Mega Evolution button beside the shiny toggle to switch forms. Select the active Mega button again to return to the regular form. The shiny setting is preserved across form changes, and stats, types, abilities, and dimensions update with the selected form.
 
+## Run locally
 
-## Technologies Used
-The project was built using the following technologies:
-- HTML
-- CSS
-- JavaScript
+With Node.js 18 or later:
 
+```sh
+npm start
+```
 
-## Conclusion
-Unleash your inner Pokémon Trainer and embark on a journey through the vibrant Pokémon world with PokeFetch! Gotta fetch 'em all! 🌟🎮
+Open [http://127.0.0.1:5501](http://127.0.0.1:5501). Stop the server with Ctrl+C.
 
+If that port is occupied, run `node scripts/serve.mjs 5502`. VS Code Live Server also works. Serve the folder over HTTP because the browser loads JavaScript modules; opening an HTML file directly from the filesystem is not supported.
 
-## Contact Me
-If you'd like to learn more about my skills and experience, please don't hesitate to reach out. I'd love to hear from you!
-If you encounter any issues while using PokeFetch or have suggestions for improvement, please don't hesitate to open an issue in this repository. Feedback is very much appreciated.
+The included preview server serves public HTML, CSS, JavaScript, and image assets. It binds to the local computer only.
+
+## Tests
+
+```sh
+npm test
+```
+
+The tests use Node's built-in test runner, real page markup, a small DOM test helper, and mocked API responses. They do not require internet access. They cover API normalization and caching, stat mapping, default forms, request cancellation, profile visibility, errors and retries, mobile navigation, generation filters, pagination, and map dialogs.
+
+## Data and artwork
+
+- Pokémon data: [PokéAPI](https://pokeapi.co/docs/v2).
+- Pokémon artwork: [PokeAPI/sprites](https://github.com/PokeAPI/sprites).
+- Regional maps: [The Pokémon Company's region-map collection](https://www.pokemon.com/us/news/adventure-from-kanto-to-paldea-with-the-pokemon-center-s-region-map-posters). Original sources are recorded in [images/regions/SOURCES.md](images/regions/SOURCES.md).
+
+Successful API responses are cached in memory and, when available, session storage for 24 hours. An internet connection is needed for new Pokémon data and artwork. Regional map images are included locally.
+
+The application code is MIT licensed. Pokémon imagery and regional maps belong to their respective rights holders and are not covered by the code license.

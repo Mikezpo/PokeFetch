@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Look up any Pokémon by name or number. Explore base stats, shiny artwork, abilities, and evolution families.">
+  <meta name="theme-color" content="#0e0e10">
+  <title>Stats Check — PokeFetch</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="PokeFetch home">Poke<span>Fetch</span></a>
+      <nav class="navLinks" id="primaryNavigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+<a href="stats.html" aria-current="page">Stats Check</a>
+<a href="pokedex.html">Pokédex</a>
+<a href="generations.html">Generations</a>
+      </nav>
+      <button class="navButton" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNavigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="container">
+      <section class="page-heading stats-intro" aria-labelledby="stats-heading">
+        <div>
+          <span class="eyebrow">Stats Check</span>
+          <h1 id="stats-heading">Meet your next favourite.</h1>
+          <p>A closer look at every Pokémon, from their first Pokédex entry to their final evolution.</p>
+        </div>
+        <div>
+          <form id="pokemon-search" action="stats.html" method="get">
+            <label class="search-label" for="pokemonInput">Find a Pokémon</label>
+            <div class="search-box">
+              <input type="search" id="pokemonInput" name="pokemon" list="pokemonList" placeholder="Name or Pokédex number" autocomplete="off" aria-describedby="page-feedback">
+              <button class="btn btn-primary" type="submit" id="fetchButton" aria-busy="false">Fetch</button>
+            </div>
+            <datalist id="pokemonList"></datalist>
+          </form>
+          <p class="feedback" id="page-feedback" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+      <section class="empty-state" id="search-empty" aria-labelledby="empty-heading">
+        <span class="empty-symbol" aria-hidden="true"></span>
+        <div><h2 id="empty-heading">Every Pokémon has a story.</h2><p>Enter a name or Pokédex number above, or choose one of the starters below. Their profile will appear right here.</p></div>
+      </section>
+      <section class="statsSection hide" id="pokemon-results" aria-label="Pokémon profile">
+        <div class="profile-grid">
+          <div class="profile-identity">
+            <span class="profile-kicker" id="profile-form">National Pokédex</span>
+            <span class="pokemonId">—</span>
+            <img class="identity-art" id="pokeImg" alt="" width="260" height="250">
+            <h2 class="pokemonName">—</h2>
+            <div class="pokemonType type-list"></div>
+            <div class="artwork-controls">
+              <button class="btn btn-small btn-quiet" type="button" id="shiny-toggle" aria-pressed="false">Show shiny artwork</button>
+              <div class="mega-form-controls hide" id="mega-form-controls" role="group" aria-label="Mega Evolutions" aria-busy="false"></div>
+            </div>
+            <p class="feedback form-feedback" id="mega-feedback" role="status" aria-live="polite"></p>
+            <div class="profile-abilities"><h3>Abilities</h3><ul class="pokeAbilit"></ul></div>
+            <div class="profile-pager"><a id="previous-pokemon" aria-label="Previous Pokémon">← Previous Pokémon</a><a id="next-pokemon" aria-label="Next Pokémon">Next Pokémon →</a></div>
+          </div>
+          <div class="profile-details">
+            <h2>About <span class="muted">this Pokémon</span></h2>
+            <p class="profile-description" id="pokemon-description"></p>
+            <dl class="statsInformation">
+              <div class="statsRow"><dt>Generation</dt><dd class="pokeGen">—</dd></div>
+              <div class="statsRow"><dt>Main region</dt><dd class="pokeRegion">—</dd></div>
+              <div class="statsRow"><dt>Category</dt><dd id="profile-category">—</dd></div>
+              <div class="statsRow"><dt>Growth rate</dt><dd id="profile-growth">—</dd></div>
+              <div class="statsRow"><dt>Height</dt><dd id="profile-height">—</dd></div>
+              <div class="statsRow"><dt>Weight</dt><dd id="profile-weight">—</dd></div>
+            </dl>
+            <section class="base-stats" aria-labelledby="base-stats-heading">
+              <div class="stats-heading"><h2 id="base-stats-heading">Base stats</h2><span>Total <strong id="stats-total">0</strong></span></div>
+              <div class="stat-list">
+                <div class="base-stat-row" data-stat="hp"><span>HP</span><div class="stat-track" aria-hidden="true"><span data-stat-fill></span></div><strong data-stat-value>0</strong></div>
+                <div class="base-stat-row" data-stat="attack"><span>Attack</span><div class="stat-track" aria-hidden="true"><span data-stat-fill></span></div><strong data-stat-value>0</strong></div>
+                <div class="base-stat-row" data-stat="defense"><span>Defence</span><div class="stat-track" aria-hidden="true"><span data-stat-fill></span></div><strong data-stat-value>0</strong></div>
+                <div class="base-stat-row" data-stat="special-attack"><span>Sp. Attack</span><div class="stat-track" aria-hidden="true"><span data-stat-fill></span></div><strong data-stat-value>0</strong></div>
+                <div class="base-stat-row" data-stat="special-defense"><span>Sp. Defence</span><div class="stat-track" aria-hidden="true"><span data-stat-fill></span></div><strong data-stat-value>0</strong></div>
+                <div class="base-stat-row" data-stat="speed"><span>Speed</span><div class="stat-track" aria-hidden="true"><span data-stat-fill></span></div><strong data-stat-value>0</strong></div>
+              </div>
+              <p class="stat-scale">Base-stat scale: 0–255</p>
+            </section>
+          </div>
+        </div>
+        <section class="section" aria-labelledby="evolution-heading">
+          <div class="section-heading"><div><span class="eyebrow">The next chapter</span><h2 id="evolution-heading">Evolution family</h2></div></div>
+          <div class="evolution-grid" id="evolution-grid"></div>
+          <p class="feedback" id="evolution-feedback" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+      <section class="section" aria-labelledby="starters-heading">
+        <div class="section-heading">
+          <div><span class="eyebrow">A little inspiration</span><h2 id="starters-heading">Start somewhere familiar</h2><p>Three first partners. Countless adventures.</p></div>
+          <button class="link-button" type="button" data-random>Surprise me ↗</button>
+        </div>
+        <div class="pokemon-grid" id="featured-grid"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">Poke<span>Fetch</span></a>
+          <p>A little curiosity. A whole world of Pokémon.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a><a href="stats.html">Stats Check</a>
+          <a href="pokedex.html">Pokédex</a><a href="generations.html">Generations &amp; Regions</a>
+          <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">Data from PokéAPI ↗</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> PokeFetch · Code and design by José Oliveira</span>
+        <span>Pokémon artwork and regional maps © The Pokémon Company.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

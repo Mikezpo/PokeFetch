@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse Pokémon by generation, search by name or number, and explore their individual profiles.">
+  <meta name="theme-color" content="#0e0e10">
+  <title>Pokédex by Generation — PokeFetch</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/pokedex.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="PokeFetch home">Poke<span>Fetch</span></a>
+      <nav class="navLinks" id="primaryNavigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+<a href="stats.html">Stats Check</a>
+<a href="pokedex.html" aria-current="page">Pokédex</a>
+<a href="generations.html">Generations</a>
+      </nav>
+      <button class="navButton" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNavigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="container">
+      <section class="page-heading" aria-labelledby="dex-heading">
+        <span class="eyebrow">The Pokédex</span>
+        <h1 id="dex-heading">Find your next discovery.</h1>
+        <p>Browse the Pokémon introduced in each generation. Choose a region, search a name, and open a profile to learn more.</p>
+      </section>
+      <section class="pokedex-toolbar" aria-label="Pokédex filters">
+        <div><label class="field-label" for="generation-select">Generation</label><select class="field" id="generation-select"><option value="all">All generations · National Pokédex</option></select></div>
+        <div><label class="field-label" for="dex-search">Search this generation</label><input class="field" id="dex-search" type="search" placeholder="Name or Pokédex number" autocomplete="off"></div>
+        <a class="text-link" id="dex-map-link" href="generations.html">Explore the region map ↗</a>
+      </section>
+      <div class="dex-context">
+        <div><span class="eyebrow" id="dex-generation">Generation I</span><h2 id="dex-region">Kanto</h2></div>
+        <span class="dex-count" id="dex-count">Opening the Pokédex…</span>
+      </div>
+      <div class="pokemon-grid dex-grid" id="pokedex-grid"></div>
+      <div class="pokedex-help">
+        <p class="feedback" id="page-feedback" role="status" aria-live="polite"></p>
+        <button class="link-button" type="button" id="dex-retry">Reload Pokémon ↻</button>
+      </div>
+      <nav class="pagination" aria-label="Pokédex pages">
+        <button class="btn btn-small" type="button" id="dex-previous" disabled>← Previous</button>
+        <span id="dex-page" aria-live="polite">Page 1</span>
+        <button class="btn btn-small" type="button" id="dex-next" disabled>Next →</button>
+      </nav>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">Poke<span>Fetch</span></a>
+          <p>A little curiosity. A whole world of Pokémon.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a><a href="stats.html">Stats Check</a>
+          <a href="pokedex.html">Pokédex</a><a href="generations.html">Generations &amp; Regions</a>
+          <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">Data from PokéAPI ↗</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> PokeFetch · Code and design by José Oliveira</span>
+        <span>Pokémon artwork and regional maps © The Pokémon Company.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

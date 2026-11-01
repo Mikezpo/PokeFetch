@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore all nine Pokémon generations and their regional maps, from Kanto to Paldea.">
+  <meta name="theme-color" content="#0e0e10">
+  <title>Generations &amp; Regions — PokeFetch</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/generations.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="PokeFetch home">Poke<span>Fetch</span></a>
+      <nav class="navLinks" id="primaryNavigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+<a href="stats.html">Stats Check</a>
+<a href="pokedex.html">Pokédex</a>
+<a href="generations.html" aria-current="page">Generations</a>
+      </nav>
+      <button class="navButton" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNavigation">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </header>
+  <main id="main-content">
+    <div class="container">
+      <section class="page-heading" aria-labelledby="generations-heading">
+        <span class="eyebrow">Generations &amp; Regions</span>
+        <h1 id="generations-heading">Every adventure starts somewhere.</h1>
+        <p>From Kanto’s familiar paths to Paldea’s open landscapes, explore the main region of every generation. Open a map, then meet its Pokémon.</p>
+      </section>
+      <nav class="region-jump" id="region-jump" aria-label="Jump to a region"></nav>
+      <div class="generation-grid" id="generation-grid"></div>
+      <p class="feedback" id="page-feedback" role="status" aria-live="polite"></p>
+      <p class="map-source-note">Regional map artwork: <a href="https://www.pokemon.com/us/news/adventure-from-kanto-to-paldea-with-the-pokemon-center-s-region-map-posters" target="_blank" rel="noreferrer">The Pokémon Company’s regional map collection ↗</a>. A generation can also include adventures set in other regions.</p>
+      <dialog class="map-dialog" id="region-map-dialog" aria-labelledby="map-dialog-title">
+        <div class="map-dialog-header"><h2 id="map-dialog-title">Region map</h2><button class="btn btn-small" type="button" data-close-dialog>Close ✕</button></div>
+        <img alt="" width="1000" height="720">
+        <p>Map artwork © The Pokémon Company. <a class="text-link" data-map-source target="_blank" rel="noreferrer">View the original collection ↗</a></p>
+      </dialog>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">Poke<span>Fetch</span></a>
+          <p>A little curiosity. A whole world of Pokémon.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a><a href="stats.html">Stats Check</a>
+          <a href="pokedex.html">Pokédex</a><a href="generations.html">Generations &amp; Regions</a>
+          <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">Data from PokéAPI ↗</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> PokeFetch · Code and design by José Oliveira</span>
+        <span>Pokémon artwork and regional maps © The Pokémon Company.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
