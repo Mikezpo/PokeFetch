@@ -18,28 +18,6 @@ Profiles remain hidden until a Pokémon is successfully selected. Profiles and g
 
 Select a named Mega Evolution button beside the shiny toggle to switch forms. Select the active Mega button again to return to the regular form. The shiny setting is preserved across form changes, and stats, types, abilities, and dimensions update with the selected form.
 
-## Run locally
-
-With Node.js 18 or later:
-
-```sh
-npm start
-```
-
-Open [http://127.0.0.1:5501](http://127.0.0.1:5501). Stop the server with Ctrl+C.
-
-If that port is occupied, run `node scripts/serve.mjs 5502`. VS Code Live Server also works. Serve the folder over HTTP because the browser loads JavaScript modules; opening an HTML file directly from the filesystem is not supported.
-
-The included preview server serves public HTML, CSS, JavaScript, and image assets. It binds to the local computer only.
-
-## Tests
-
-```sh
-npm test
-```
-
-The tests use Node's built-in test runner, real page markup, a small DOM test helper, and mocked API responses. They do not require internet access. They cover API normalization and caching, stat mapping, default forms, request cancellation, profile visibility, errors and retries, mobile navigation, generation filters, pagination, and map dialogs.
-
 ## Data and artwork
 
 - Pokémon data: [PokéAPI](https://pokeapi.co/docs/v2).
