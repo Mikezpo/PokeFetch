@@ -2,6 +2,7 @@ import { api, artworkUrl, createLatestRequest, englishName, formatName, normaliz
 import { generationInfo } from './data.js';
 import { initSite, loadAutocomplete, pokemonCard, setImage, showFeedback, typeBadge } from './site.js';
 import { updatePageMetadata } from './seo.js';
+import { calculateTypeDefenses, formatDamageMultiplier } from './type-defenses.js';
 
 const STAT_LABELS = { hp: 'HP', attack: 'Attack', defense: 'Defence', 'special-attack': 'Sp. Attack', 'special-defense': 'Sp. Defence', speed: 'Speed' };
 
@@ -122,6 +123,38 @@ export function initStatsPage(document, { client = api, location = globalThis.lo
     }
   }
 
+  function renderDefenses(details) {
+    const defenses = calculateTypeDefenses(details.pokemon.types.map(({ type }) => type.name));
+    document.querySelector('#type-defense-pokemon').textContent = profileName(details);
+    const grid = document.querySelector('#type-defenses-grid');
+    grid.replaceChildren(...defenses.map(({ type, multiplier }) => {
+      const category = multiplier === 0 ? 'immune' : multiplier > 1 ? 'weak' : multiplier < 1 ? 'resistant' : 'neutral';
+      const label = { immune: 'Immune', weak: 'Weak', resistant: 'Resists', neutral: 'Normal' }[category];
+      const cell = document.createElement('div');
+      cell.className = `type-defense-cell is-${category}`;
+      cell.setAttribute('data-attacking-type', type);
+      cell.setAttribute('data-multiplier', multiplier);
+      const term = document.createElement('dt');
+      const badge = typeBadge(document, type);
+      badge.classList.add('type-defense-type');
+      term.appendChild(badge);
+      const value = document.createElement('dd');
+      value.className = 'type-defense-value';
+      value.setAttribute('aria-label', `${multiplier} times damage: ${label.toLowerCase()}`);
+      const amount = document.createElement('strong');
+      amount.className = 'damage-multiplier';
+      amount.textContent = formatDamageMultiplier(multiplier);
+      const meaning = document.createElement('span');
+      meaning.className = 'damage-label';
+      meaning.textContent = label;
+      value.append(amount, meaning);
+      cell.append(term, value);
+      return cell;
+    }));
+    grid.classList.toggle('hide', defenses.length === 0);
+    showFeedback(document.querySelector('#type-defense-feedback'), defenses.length ? '' : 'Standard type defenses are unavailable for this form.');
+  }
+
   function render(details, { preserveShiny = false } = {}) {
     currentDetails = details;
     if (!preserveShiny) shiny = false;
@@ -166,6 +199,7 @@ export function initStatsPage(document, { client = api, location = globalThis.lo
     renderImage();
     renderMegaControls(details);
     renderPager();
+    renderDefenses(details);
     results.classList.remove('hide');
     empty.classList.add('hide');
   }

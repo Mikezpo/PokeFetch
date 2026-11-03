@@ -978,6 +978,79 @@ img {
     text-align: right;
 }
 
+.type-defense-grid {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+}
+
+.type-defense-cell {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    text-align: center;
+}
+
+.type-defense-cell .type-defense-type {
+    display: block;
+    width: 100%;
+    padding: 8px 4px;
+    border-radius: 0;
+    font-size: 12px;
+}
+
+.type-defense-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 12px 6px;
+    color: var(--muted);
+}
+
+.damage-multiplier {
+    font-size: 20px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+}
+
+.damage-label {
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.type-defense-cell.is-weak .type-defense-value {
+    background: #ff925514;
+    color: var(--orange);
+}
+
+.type-defense-cell.is-resistant .type-defense-value {
+    background: #79c69a14;
+    color: #9bd2b1;
+}
+
+.type-defense-cell.is-immune .type-defense-value {
+    background: #c6badb0a;
+    color: #cbc4d9;
+}
+
+.type-defense-note {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.type-defense-note a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .evolution-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
@@ -1224,6 +1297,23 @@ img {
     line-height: 1.5;
 }
 
+.region-game-name sup {
+    color: var(--orange);
+    font-size: .8em;
+    line-height: 0;
+}
+
+.generation-card .game-release-note {
+    margin: 8px 0 0;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.game-release-note strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
 .console-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1392,6 +1482,10 @@ img {
 }
 
 @media (max-width: 760px) {
+    .type-defense-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
     .container {
         width: calc(100% - 36px);
     }
@@ -1546,6 +1640,11 @@ img {
 }
 
 @media (max-width: 520px) {
+    .type-defense-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+    }
+
     body {
         font-size: 15px;
     }

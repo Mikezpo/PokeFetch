@@ -1,1 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="29" fill="#ff914d" stroke="#18181b" stroke-width="5"/><path d="M3 32h58a29 29 0 0 1-58 0" fill="#f5f2ea"/><path d="M3 32h58" stroke="#18181b" stroke-width="5"/><circle cx="32" cy="32" r="10" fill="#f5f2ea" stroke="#18181b" stroke-width="5"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <title>PokeFetch Poké Ball</title>
+  <defs>
+    <clipPath id="ball">
+      <circle cx="48" cy="48" r="40"/>
+    </clipPath>
+  </defs>
+  <circle cx="48" cy="48" r="44" fill="#18181b"/>
+  <g clip-path="url(#ball)">
+    <path d="M0 0h96v96H0z" fill="#ff914d"/>
+    <path d="M0 48h96v48H0z" fill="#f5f2ea"/>
+    <path d="M4 48h88" stroke="#18181b" stroke-width="8"/>
+  </g>
+  <circle cx="48" cy="48" r="14" fill="#f5f2ea" stroke="#18181b" stroke-width="8"/>
+</svg>

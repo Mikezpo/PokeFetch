@@ -212,6 +212,9 @@ test('the stats profile starts hidden and appears only after a successful lookup
   assert.equal(app.find('[data-stat="speed"]').querySelector('[data-stat-value]').textContent, '0');
   assert.equal(app.find('#stats-total').textContent, '640');
   assert.equal(app.find('#evolution-grid').children.length, 2);
+  assert.equal(app.find('#type-defenses-grid').children.length, 18);
+  assert.equal(app.find('#type-defense-pokemon').textContent, 'Bulbasaur');
+  assert.equal(app.find('[data-attacking-type="grass"]').getAttribute('data-multiplier'), '0.25');
 });
 
 test('generation and region come from the selected species, including Gen 8 and 9', async () => {
@@ -229,12 +232,14 @@ test('shiny toggle swaps artwork without another request', async () => {
   let calls = 0;
   const app = setupStats(initStatsPage, client({ pokemonDetails: async () => { calls++; return fixture(); } }));
   await app.search('bulbasaur');
+  const originalDefense = app.find('[data-attacking-type="normal"]');
   app.find('#shiny-toggle').dispatch('click');
   assert.equal(app.find('#pokeImg').src, 'shiny.png');
   assert.equal(app.find('#shiny-toggle').getAttribute('aria-pressed'), 'true');
   app.find('#shiny-toggle').dispatch('click');
   assert.equal(app.find('#pokeImg').src, 'normal.png');
   assert.equal(calls, 1);
+  assert.equal(app.find('[data-attacking-type="normal"]'), originalDefense);
 });
 
 test('Mega buttons use the available form names and exclude other varieties', async () => {
@@ -263,11 +268,17 @@ test('both Charizard Mega forms update the profile and preserve shiny artwork', 
   const app = setupStats(initStatsPage, client({ pokemonDetails: async slug => { calls++; return charizardFixture(slug); } }));
   await app.search('charizard');
   assert.deepEqual(app.find('#mega-form-controls').children.map(toggle => toggle.textContent), ['Mega Charizard X', 'Mega Charizard Y']);
+  assert.equal(app.find('[data-attacking-type="rock"]').getAttribute('data-multiplier'), '4');
+  assert.equal(app.find('[data-attacking-type="ground"]').getAttribute('data-multiplier'), '0');
   const originalButton = app.find('[data-mega-form="charizard-mega-x"]');
   app.find('#shiny-toggle').dispatch('click');
   await app.selectMegaEvolution('charizard-mega-x');
   assert.equal(app.find('.pokemonName').textContent, 'Mega Charizard X');
   assert.equal(app.find('#profile-form').textContent, 'Mega Evolution');
+  assert.equal(app.find('#type-defense-pokemon').textContent, 'Mega Charizard X');
+  assert.equal(app.find('[data-attacking-type="rock"]').getAttribute('data-multiplier'), '2');
+  assert.equal(app.find('[data-attacking-type="ground"]').getAttribute('data-multiplier'), '2');
+  assert.equal(app.find('[data-attacking-type="electric"]').querySelector('.damage-multiplier').textContent, '½×');
   assert.equal(app.find('#pokeImg').src, 'art/shiny/charizard-mega-x.png');
   assert.equal(app.find('#pokeImg').alt, 'Shiny Mega Charizard X');
   assert.equal(app.find('#shiny-toggle').getAttribute('aria-pressed'), 'true');
@@ -289,6 +300,9 @@ test('both Charizard Mega forms update the profile and preserve shiny artwork', 
   await app.selectMegaEvolution('charizard-mega-y');
   assert.equal(app.find('.pokemonName').textContent, 'Mega Charizard Y');
   assert.equal(app.find('#pokeImg').src, 'art/shiny/charizard-mega-y.png');
+  assert.equal(app.find('#type-defense-pokemon').textContent, 'Mega Charizard Y');
+  assert.equal(app.find('[data-attacking-type="rock"]').getAttribute('data-multiplier'), '4');
+  assert.equal(app.find('[data-attacking-type="ground"]').getAttribute('data-multiplier'), '0');
   assert.equal(app.find('.pokeAbilit').textContent, 'Drought');
   assert.deepEqual(app.find('.pokemonType').children.map(badge => badge.textContent), ['Fire', 'Flying']);
   assert.equal(app.find('[data-stat="special-attack"]').querySelector('[data-stat-value]').textContent, '159');
@@ -343,6 +357,8 @@ test('rapid Mega selections keep the latest form and the latest shiny setting', 
   assert.equal(app.find('#pokeImg').src, 'art/shiny/charizard-mega-y.png');
   assert.equal(app.find('#mega-form-controls').getAttribute('aria-busy'), 'false');
   assert.equal(app.find('title').textContent, 'Mega Charizard Y Stats, Types & Abilities | PokeFetch');
+  assert.equal(app.find('#type-defense-pokemon').textContent, 'Mega Charizard Y');
+  assert.equal(app.find('[data-attacking-type="rock"]').getAttribute('data-multiplier'), '4');
   assert.equal(app.find('[property="og:url"]').getAttribute('content'), 'https://mikezpo.github.io/PokeFetch/stats.html?pokemon=charizard-mega-y');
 });
 
@@ -648,4 +664,26 @@ test('regional game and console lists survive count failures and ignore unrelate
   assert.deepEqual(lists(), before);
   assert.equal(document.querySelector('.generation-count').textContent, '2 Pokémon introduced');
   assert.equal(document.querySelector('#page-feedback').textContent, '');
+});
+
+test('Green has an asterisk and a linked regional-release note without changing game-name styling', () => {
+  const document = loadPage('generations.html');
+  const name = document.querySelector('#region-kanto').querySelector('.region-game-name');
+  assert.match(name.textContent, /Green\*/);
+  assert.equal(name.getAttribute('aria-describedby'), 'kanto-green-note');
+  const note = document.querySelector('#kanto-green-note');
+  assert.match(note.textContent, /only in Japan in 1996/);
+  assert.match(note.textContent, /Japanese-language/);
+});
+
+test('a profile with a nonstandard type remains usable and explains unavailable type defenses', async () => {
+  const [, { initStatsPage }] = await modules;
+  const details = fixture();
+  details.pokemon.types = [{ type: { name: 'stellar' } }];
+  const app = setupStats(initStatsPage, client({ pokemonDetails: async () => details }));
+  await app.search('bulbasaur');
+  assert.equal(app.find('.statsSection').classList.contains('hide'), false);
+  assert.equal(app.find('#type-defenses-grid').children.length, 0);
+  assert.equal(app.find('#type-defenses-grid').classList.contains('hide'), true);
+  assert.match(app.find('#type-defense-feedback').textContent, /unavailable/);
 });

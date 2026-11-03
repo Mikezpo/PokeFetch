@@ -22,7 +22,9 @@
   <meta name="twitter:image" content="https://mikezpo.github.io/PokeFetch/images/logo-pokefetch.png">
   <meta name="twitter:image:alt" content="PokeFetch logo">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" href="images/favicon-96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/normalize.css">
@@ -110,6 +112,14 @@
             </section>
           </div>
         </div>
+        <section class="section type-defenses" aria-labelledby="type-defenses-heading">
+          <div class="section-heading">
+            <div><span class="eyebrow">Know your matchups</span><h2 id="type-defenses-heading">Type defenses</h2><p>Incoming attack damage against <strong id="type-defense-pokemon">this Pokémon</strong>.</p></div>
+          </div>
+          <dl class="type-defense-grid" id="type-defenses-grid" aria-label="Incoming damage by attacking type"></dl>
+          <p class="feedback form-feedback" id="type-defense-feedback" role="status" aria-live="polite"></p>
+          <p class="type-defense-note">Current type matchups only. Abilities, held items, and battle effects can change damage. <a href="https://pokemondb.net/type" target="_blank" rel="noreferrer">Type chart reference: Pokémon Database ↗</a></p>
+        </section>
         <section class="section" aria-labelledby="evolution-heading">
           <div class="section-heading"><div><span class="eyebrow">The next chapter</span><h2 id="evolution-heading">Evolution family</h2></div></div>
           <div class="evolution-grid" id="evolution-grid"></div>

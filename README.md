@@ -9,7 +9,7 @@ Built with HTML, CSS, and JavaScript. No framework, build step, or package insta
 ## Pages
 
 - **Home** — search, featured Pokémon, and introductions to the regions.
-- **Stats Check** (`stats.html`) — a Pokémon profile with regular/shiny artwork, named Mega Evolution controls where available, an English Pokédex entry, abilities, height, weight, all six base stats, and its evolution family.
+- **Stats Check** (`stats.html`) — a Pokémon profile with regular/shiny artwork, named Mega Evolution controls where available, an English Pokédex entry, abilities, height, weight, all six base stats, type defenses, and its evolution family.
 - **Pokédex** (`pokedex.html`) — browse all Pokémon species or choose a generation, search by name or number, and move through paginated results.
 - **Generations & Regions** (`generations.html`) — nine illustrated regional maps, Pokémon games grouped by region with release-console tags, live Pokémon counts, generation browsing links, and a full-map viewer.
 
@@ -29,5 +29,7 @@ Select a named Mega Evolution button beside the shiny toggle to switch forms. Se
 - Regional maps: [The Pokémon Company's region-map collection](https://www.pokemon.com/us/news/adventure-from-kanto-to-paldea-with-the-pokemon-center-s-region-map-posters). Original sources are recorded in [images/regions/SOURCES.md](images/regions/SOURCES.md).
 
 Successful API responses are cached in memory and, when available, session storage for 24 hours. An internet connection is needed for new Pokémon data and artwork. Regional map images are included locally.
+
+Type defenses use a bundled snapshot of PokéAPI’s current standard type relations, cross-checked against [Pokémon Database’s type chart](https://pokemondb.net/type). Both types are combined for dual-type Pokémon, and the chart updates when a different form is selected. Abilities, held items, and battle effects can change actual damage.
 
 The application code is MIT licensed. Pokémon imagery and regional maps belong to their respective rights holders and are not covered by the code license.
