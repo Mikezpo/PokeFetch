@@ -1,13 +1,17 @@
 # PokeFetch
 
-A Pokémon discovery website built with HTML, CSS, and JavaScript. No framework, build step, or package installation is required.
+PokeFetch is a Pokémon stat checker and Pokédex created by José Oliveira. Explore base stats, types, abilities, shiny artwork, Mega Evolutions, evolution families, and regional maps.
+
+**[Explore PokeFetch →](https://mikezpo.github.io/PokeFetch/)**
+
+Built with HTML, CSS, and JavaScript. No framework, build step, or package installation is required.
 
 ## Pages
 
 - **Home** — search, featured Pokémon, and introductions to the regions.
 - **Stats Check** (`stats.html`) — a Pokémon profile with regular/shiny artwork, named Mega Evolution controls where available, an English Pokédex entry, abilities, height, weight, all six base stats, and its evolution family.
 - **Pokédex** (`pokedex.html`) — browse all Pokémon species or choose a generation, search by name or number, and move through paginated results.
-- **Generations & Regions** (`generations.html`) — nine illustrated regional maps, live Pokémon counts, generation browsing links, and a full-map viewer.
+- **Generations & Regions** (`generations.html`) — nine illustrated regional maps, Pokémon games grouped by region with release-console tags, live Pokémon counts, generation browsing links, and a full-map viewer.
 
 Profiles remain hidden until a Pokémon is successfully selected. Profiles and generation filters support direct links, for example:
 

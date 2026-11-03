@@ -3,9 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Browse Pokémon by generation, search by name or number, and explore their individual profiles.">
+  <meta name="description" content="Browse the PokeFetch Pokédex from Kanto to Paldea. Find Pokémon by generation, name, or number, see their types, and open detailed stat profiles.">
   <meta name="theme-color" content="#0e0e10">
-  <title>Pokédex by Generation — PokeFetch</title>
+  <title>Pokémon Pokédex by Generation | PokeFetch</title>
+  <meta name="author" content="José Oliveira">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:site_name" content="PokeFetch">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pokémon Pokédex by Generation | PokeFetch">
+  <meta property="og:description" content="Browse the PokeFetch Pokédex from Kanto to Paldea. Find Pokémon by generation, name, or number, see their types, and open detailed stat profiles.">
+  <meta property="og:image" content="https://mikezpo.github.io/PokeFetch/images/logo-pokefetch.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="PokeFetch logo">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pokémon Pokédex by Generation | PokeFetch">
+  <meta name="twitter:description" content="Browse the PokeFetch Pokédex from Kanto to Paldea. Find Pokémon by generation, name, or number, see their types, and open detailed stat profiles.">
+  <meta name="twitter:image" content="https://mikezpo.github.io/PokeFetch/images/logo-pokefetch.png">
+  <meta name="twitter:image:alt" content="PokeFetch logo">
+  <link rel="sitemap" type="application/xml" href="sitemap.xml">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +33,9 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="PokeFetch home">Poke<span>Fetch</span></a>
+      <a class="brand" href="./" aria-label="PokeFetch home">Poke<span>Fetch</span></a>
       <nav class="navLinks" id="primaryNavigation" aria-label="Main navigation">
-        <a href="index.html">Home</a>
+        <a href="./">Home</a>
 <a href="stats.html">Stats Check</a>
 <a href="pokedex.html" aria-current="page">Pokédex</a>
 <a href="generations.html">Generations</a>
@@ -32,9 +48,9 @@
   <main id="main-content">
     <div class="container">
       <section class="page-heading" aria-labelledby="dex-heading">
-        <span class="eyebrow">The Pokédex</span>
+        <span class="eyebrow">Pokédex by generation</span>
         <h1 id="dex-heading">Find your next discovery.</h1>
-        <p>Browse the Pokémon introduced in each generation. Choose a region, search a name, and open a profile to learn more.</p>
+        <p>Browse the Pokémon introduced in Generations I–IX, from Kanto to Paldea. Search by name or number, see each Pokémon’s types, and open a profile for stats and abilities.</p>
       </section>
       <section class="pokedex-toolbar" aria-label="Pokédex filters">
         <div><label class="field-label" for="generation-select">Generation</label><select class="field" id="generation-select"><option value="all">All generations · National Pokédex</option></select></div>
@@ -46,6 +62,7 @@
         <span class="dex-count" id="dex-count">Opening the Pokédex…</span>
       </div>
       <div class="pokemon-grid dex-grid" id="pokedex-grid"></div>
+      <noscript><p class="feedback">Enable JavaScript to load and search the Pokédex. You can still <a href="generations.html">explore all nine Pokémon generations and their region maps</a>.</p></noscript>
       <div class="pokedex-help">
         <p class="feedback" id="page-feedback" role="status" aria-live="polite"></p>
         <button class="link-button" type="button" id="dex-retry">Reload Pokémon ↻</button>
@@ -55,17 +72,33 @@
         <span id="dex-page" aria-live="polite">Page 1</span>
         <button class="btn btn-small" type="button" id="dex-next" disabled>Next →</button>
       </nav>
+      <section class="section" aria-labelledby="generation-browse-heading">
+        <div class="section-heading">
+          <div><h2 id="generation-browse-heading">Explore Pokémon by generation</h2><p>Each Pokédex groups Pokémon by the generation in which they were introduced.</p></div>
+        </div>
+        <nav class="region-jump" aria-label="Browse a generation’s Pokédex">
+          <a class="region-jump-link" href="pokedex.html?generation=1">Generation I · Kanto</a>
+          <a class="region-jump-link" href="pokedex.html?generation=2">Generation II · Johto</a>
+          <a class="region-jump-link" href="pokedex.html?generation=3">Generation III · Hoenn</a>
+          <a class="region-jump-link" href="pokedex.html?generation=4">Generation IV · Sinnoh</a>
+          <a class="region-jump-link" href="pokedex.html?generation=5">Generation V · Unova</a>
+          <a class="region-jump-link" href="pokedex.html?generation=6">Generation VI · Kalos</a>
+          <a class="region-jump-link" href="pokedex.html?generation=7">Generation VII · Alola</a>
+          <a class="region-jump-link" href="pokedex.html?generation=8">Generation VIII · Galar</a>
+          <a class="region-jump-link" href="pokedex.html?generation=9">Generation IX · Paldea</a>
+        </nav>
+      </section>
     </div>
   </main>
   <footer class="site-footer">
     <div class="container">
       <div class="footer-main">
         <div class="footer-brand">
-          <a class="brand" href="index.html">Poke<span>Fetch</span></a>
+          <a class="brand" href="./">Poke<span>Fetch</span></a>
           <p>A little curiosity. A whole world of Pokémon.</p>
         </div>
         <nav class="footer-links" aria-label="Footer navigation">
-          <a href="index.html">Home</a><a href="stats.html">Stats Check</a>
+          <a href="./">Home</a><a href="stats.html">Stats Check</a>
           <a href="pokedex.html">Pokédex</a><a href="generations.html">Generations &amp; Regions</a>
           <a href="https://pokeapi.co/" target="_blank" rel="noreferrer">Data from PokéAPI ↗</a>
         </nav>

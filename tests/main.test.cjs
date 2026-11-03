@@ -54,12 +54,12 @@ test('all four pages have one module entry, complete navigation, and local style
   const pages = ['index.html', 'stats.html', 'pokedex.html', 'generations.html'];
   for (const page of pages) {
     const document = loadPage(page);
-    const scripts = document.querySelectorAll('script');
+    const scripts = document.querySelectorAll('script').filter(script => script.getAttribute('type') === 'module');
     assert.equal(scripts.length, 1, page);
     assert.equal(scripts[0].getAttribute('type'), 'module');
     assert.ok(existsSync(join(root, scripts[0].getAttribute('src'))));
     const navigation = document.querySelector('.navLinks');
-    assert.deepEqual(navigation.querySelectorAll('a').map(link => link.href), pages);
+    assert.deepEqual(navigation.querySelectorAll('a').map(link => link.href), ['./', ...pages.slice(1)]);
     assert.equal(navigation.querySelectorAll('a').filter(link => link.getAttribute('aria-current') === 'page').length, 1);
   }
 });
@@ -199,7 +199,11 @@ test('the stats profile starts hidden and appears only after a successful lookup
   const [, { initStatsPage }] = await modules;
   const app = setupStats(initStatsPage);
   assert.equal(app.find('.statsSection').classList.contains('hide'), true);
+  assert.equal(app.find('[rel="canonical"]').href, 'https://mikezpo.github.io/PokeFetch/stats.html');
   await app.search('Bulbasaur');
+  assert.equal(app.find('title').textContent, 'Bulbasaur Stats, Types & Abilities | PokeFetch');
+  assert.equal(app.find('[rel="canonical"]').href, 'https://mikezpo.github.io/PokeFetch/stats.html?pokemon=bulbasaur');
+  assert.equal(app.document.querySelectorAll('[rel="canonical"]').length, 1);
   assert.equal(app.find('.statsSection').classList.contains('hide'), false);
   assert.equal(app.find('#search-empty').classList.contains('hide'), true);
   assert.equal(app.find('.pokemonName').textContent, 'Bulbasaur');
@@ -279,6 +283,8 @@ test('both Charizard Mega forms update the profile and preserve shiny artwork', 
   assert.equal(app.find('#next-pokemon').href, 'stats.html?pokemon=7');
   assert.equal(app.find('#pokemonInput').value, 'Mega Charizard X');
   assert.equal(app.urls.at(-1), 'stats.html?pokemon=charizard-mega-x');
+  assert.equal(app.find('title').textContent, 'Mega Charizard X Stats, Types & Abilities | PokeFetch');
+  assert.equal(app.find('[rel="canonical"]').href, 'https://mikezpo.github.io/PokeFetch/stats.html?pokemon=charizard-mega-x');
 
   await app.selectMegaEvolution('charizard-mega-y');
   assert.equal(app.find('.pokemonName').textContent, 'Mega Charizard Y');
@@ -336,6 +342,8 @@ test('rapid Mega selections keep the latest form and the latest shiny setting', 
   assert.equal(app.find('.pokemonName').textContent, 'Mega Charizard Y');
   assert.equal(app.find('#pokeImg').src, 'art/shiny/charizard-mega-y.png');
   assert.equal(app.find('#mega-form-controls').getAttribute('aria-busy'), 'false');
+  assert.equal(app.find('title').textContent, 'Mega Charizard Y Stats, Types & Abilities | PokeFetch');
+  assert.equal(app.find('[property="og:url"]').getAttribute('content'), 'https://mikezpo.github.io/PokeFetch/stats.html?pokemon=charizard-mega-y');
 });
 
 test('a new Pokémon search cancels a pending Mega form without revealing stale results', async () => {
@@ -498,11 +506,14 @@ test('Pokédex paginates, searches, and opens the generation from its URL', asyn
   await flush();
   assert.equal(selected, '8');
   assert.equal(document.querySelector('#dex-region').textContent, 'Galar');
+  assert.equal(document.querySelector('[rel="canonical"]').href, 'https://mikezpo.github.io/PokeFetch/pokedex.html?generation=8');
+  assert.equal(document.querySelector('title').textContent, 'Galar Pokédex — Generation VIII Pokémon | PokeFetch');
   assert.equal(document.querySelector('#pokedex-grid').children.length, 24);
   document.querySelector('#dex-next').dispatch('click');
   assert.equal(document.querySelector('#dex-page').textContent, 'Page 2 of 3');
   const input = document.querySelector('#dex-search');
   input.value = '50'; input.dispatch('input');
+  assert.equal(document.querySelector('[rel="canonical"]').href, 'https://mikezpo.github.io/PokeFetch/pokedex.html?generation=8');
   assert.equal(document.querySelector('#pokedex-grid').children.length, 1);
   assert.equal(document.querySelector('#pokedex-grid').children[0].href, 'stats.html?pokemon=50');
   assert.equal(document.querySelector('#pokedex-grid').children[0].querySelector('.type-badge').textContent, 'Ground');
@@ -576,18 +587,26 @@ test('generation switches ignore stale Pokédex responses', async () => {
   pending[0].resolve({ pokemon_species: [{ name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon-species/1/' }] });
   await flush();
   assert.equal(document.querySelector('#pokedex-grid').children[0].href, 'stats.html?pokemon=810');
+  assert.equal(document.querySelector('[rel="canonical"]').href, 'https://mikezpo.github.io/PokeFetch/pokedex.html?generation=8');
 });
 
 test('all nine generation cards have maps, working Pokédex links, and an accessible map dialog', async () => {
   const [, , , , { initGenerationsPage }, { GENERATIONS }] = await modules;
   const document = loadPage('generations.html');
-  initGenerationsPage(document, { client: { generation: async () => ({ pokemon_species: [1], version_groups: [{ name: 'red-blue' }] }) } });
+  initGenerationsPage(document, { client: { generation: async () => ({ pokemon_species: [1] }) } });
   await flush();
   assert.equal(document.querySelector('#generation-grid').children.length, 9);
   for (const generation of GENERATIONS) {
     assert.ok(existsSync(join(root, 'images/regions/' + generation.slug + '.png')));
     const card = document.querySelector('#region-' + generation.slug);
-    assert.equal(card.querySelector('a').href, 'pokedex.html?generation=' + generation.id);
+    assert.equal(card.querySelector('.text-link').href, 'pokedex.html?generation=' + generation.id);
+    assert.equal(card.querySelector('.region-map-button').href, 'images/regions/' + generation.slug + '.png');
+    const games = card.querySelector('.region-game-list').children;
+    assert.ok(games.length > 0);
+    for (const game of games) {
+      assert.ok(game.querySelector('.region-game-name').textContent.trim());
+      assert.ok(game.querySelectorAll('.console-tag').length > 0);
+    }
   }
   document.querySelector('.region-map-button').dispatch('click');
   const dialog = document.querySelector('#region-map-dialog');
@@ -603,4 +622,30 @@ test('branching evolution families preserve every branch and condition', async (
   assert.equal(family.length, 3);
   assert.equal(evolutionCondition(family[1].details), 'Level 16');
   assert.equal(evolutionCondition(family[2].details), 'Use Leaf Stone');
+});
+
+test('regional game and console lists survive count failures and ignore unrelated API version groups', async () => {
+  const [, , , , { initGenerationsPage }] = await modules;
+  const document = loadPage('generations.html');
+  const lists = () => document.querySelectorAll('.region-game-list').map(list => list.textContent);
+  const before = lists();
+  const game = (region, name) => document.querySelector('#region-' + region).querySelector('.region-game-list').children.find(item => item.querySelector('.region-game-name').textContent.trim() === name);
+  const consoles = item => item.querySelectorAll('.console-tag').map(tag => tag.textContent.trim());
+  assert.deepEqual(consoles(game('kanto', 'FireRed / LeafGreen')), ['Game Boy Advance', 'Nintendo Switch']);
+  assert.deepEqual(consoles(game('kalos', 'Legends: Z-A')), ['Nintendo Switch', 'Nintendo Switch 2']);
+  assert.deepEqual(consoles(game('sinnoh', 'Legends: Arceus · Hisui')), ['Nintendo Switch']);
+  assert.deepEqual(consoles(game('johto', 'HeartGold / SoulSilver')), ['Nintendo DS']);
+  let fail = true;
+  const app = initGenerationsPage(document, { client: { generation: async () => {
+    if (fail) throw new Error('Offline');
+    return { pokemon_species: [1, 2], version_groups: [{ name: 'unrelated-game' }] };
+  } } });
+  await flush();
+  assert.deepEqual(lists(), before);
+  assert.equal(document.querySelector('#page-feedback').getAttribute('role'), 'alert');
+  fail = false;
+  await app.loadCounts();
+  assert.deepEqual(lists(), before);
+  assert.equal(document.querySelector('.generation-count').textContent, '2 Pokémon introduced');
+  assert.equal(document.querySelector('#page-feedback').textContent, '');
 });

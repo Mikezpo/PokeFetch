@@ -1,6 +1,7 @@
 import { api, artworkUrl, createLatestRequest, englishName, formatName, normalizePokemonName, resourceId } from './api.js';
-import { FEATURED_POKEMON, generationInfo } from './data.js';
+import { generationInfo } from './data.js';
 import { initSite, loadAutocomplete, pokemonCard, setImage, showFeedback, typeBadge } from './site.js';
+import { updatePageMetadata } from './seo.js';
 
 const STAT_LABELS = { hp: 'HP', attack: 'Attack', defense: 'Defence', 'special-attack': 'Sp. Attack', 'special-defense': 'Sp. Defence', speed: 'Speed' };
 
@@ -126,6 +127,11 @@ export function initStatsPage(document, { client = api, location = globalThis.lo
     if (!preserveShiny) shiny = false;
     const { pokemon, species, generation, name, description, stats } = details;
     const displayName = profileName(details);
+    updatePageMetadata(document, {
+      title: `${displayName} Stats, Types & Abilities | PokeFetch`,
+      description: `Explore ${displayName}’s base stats, types, abilities, and evolution family on PokeFetch. View regular and shiny artwork and discover available Mega Evolutions.`,
+      path: `stats.html?pokemon=${encodeURIComponent(pokemon.name)}`
+    });
     const isMega = megaEvolutions(species).some(form => form.slug === pokemon.name);
     const generationData = generationInfo(generation.id);
     const setText = (selector, value) => { document.querySelector(selector).textContent = value; };
@@ -239,10 +245,13 @@ export function initStatsPage(document, { client = api, location = globalThis.lo
     if (list?.length) maxSpeciesId = Math.max(...list.map(species => resourceId(species.url)));
     if (currentDetails) renderPager();
   });
-  const featured = document.querySelector('#featured-grid');
-  featured.replaceChildren(...FEATURED_POKEMON.slice(0, 3).map(pokemon => pokemonCard(document, pokemon)));
   const initial = new URLSearchParams(location?.search || '').get('pokemon');
   if (initial) { input.value = initial; search(initial); }
+  else updatePageMetadata(document, {
+    title: 'Pokémon Stat Checker & Mega Evolutions | PokeFetch',
+    description: document.querySelector('[name="description"]').getAttribute('content'),
+    path: 'stats.html'
+  });
   return { search, selectMegaEvolution };
 }
 

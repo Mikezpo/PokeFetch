@@ -1,6 +1,7 @@
 import { api, createLatestRequest, formatName, normalizePokemonName, resourceId } from './api.js';
 import { GENERATIONS, generationInfo } from './data.js';
 import { initSite, pokemonCard, showFeedback, typeBadge } from './site.js';
+import { updatePageMetadata } from './seo.js';
 
 export function filterSpecies(species, query) {
   const name = normalizePokemonName(query);
@@ -94,6 +95,11 @@ export function initPokedexPage(document, { client = api, location = globalThis.
       })).sort((a, b) => a.id - b.id);
       loading = false;
       render();
+      updatePageMetadata(document, {
+        title: info ? `${info.region} Pokédex — Generation ${info.roman} Pokémon | PokeFetch` : 'National Pokédex — All Pokémon Generations | PokeFetch',
+        description: info ? `Browse the ${info.region} Pokédex on PokeFetch. Explore Pokémon introduced in Generation ${info.roman}, view their types, and open profiles for stats, abilities, and artwork.` : 'Explore the National Pokédex on PokeFetch. Browse Pokémon across all nine generations, see their types, and open profiles for stats, abilities, and artwork.',
+        path: info?.id === 1 ? 'pokedex.html' : `pokedex.html?generation=${info?.id || 'all'}`
+      });
       updateUrl();
     } catch (error) {
       if (!request.isCurrent() || error.name === 'AbortError') return;

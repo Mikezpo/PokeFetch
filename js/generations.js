@@ -1,10 +1,8 @@
-import { api, formatName } from './api.js';
+import { api } from './api.js';
 import { GENERATIONS, MAP_SOURCE } from './data.js';
 import { initSite, showFeedback } from './site.js';
 
 export function initGenerationsPage(document, { client = api } = {}) {
-  const grid = document.querySelector('#generation-grid');
-  const jump = document.querySelector('#region-jump');
   const dialog = document.querySelector('#region-map-dialog');
   const dialogImage = dialog.querySelector('img');
   const cards = new Map();
@@ -17,58 +15,20 @@ export function initGenerationsPage(document, { client = api } = {}) {
   }
 
   GENERATIONS.forEach(generation => {
-    const link = document.createElement('a');
-    link.href = `#region-${generation.slug}`;
-    link.textContent = generation.region;
-    link.className = 'region-jump-link';
-    jump.appendChild(link);
-
-    const card = document.createElement('article');
-    card.className = 'generation-card';
-    card.id = `region-${generation.slug}`;
-    const mapButton = document.createElement('button');
-    mapButton.className = 'region-map-button';
-    mapButton.type = 'button';
-    mapButton.setAttribute('aria-label', `View the full ${generation.region} map`);
-    const image = document.createElement('img');
-    image.src = `images/regions/${generation.slug}.png`;
-    image.alt = `Map of ${generation.region}`;
-    image.width = 600;
-    image.height = 400;
-    image.loading = 'lazy';
-    const mapLabel = document.createElement('span');
-    mapLabel.textContent = 'Explore the map ↗';
-    mapButton.append(image, mapLabel);
-    mapButton.addEventListener('click', () => openMap(generation));
-    const content = document.createElement('div');
-    content.className = 'generation-card-body';
-    const eyebrow = document.createElement('span');
-    eyebrow.className = 'eyebrow';
-    eyebrow.textContent = `Generation ${generation.roman}`;
-    const heading = document.createElement('h2');
-    heading.textContent = generation.region;
-    const description = document.createElement('p');
-    description.textContent = generation.description;
-    const count = document.createElement('span');
-    count.className = 'generation-count';
-    count.textContent = 'Discover this generation';
-    const games = document.createElement('span');
-    games.className = 'generation-games';
-    const browse = document.createElement('a');
-    browse.className = 'text-link';
-    browse.href = `pokedex.html?generation=${generation.id}`;
-    browse.textContent = `Browse Generation ${generation.roman} →`;
-    content.append(eyebrow, heading, description, count, games);
-    if (generation.note) {
-      const note = document.createElement('p');
-      note.className = 'region-note';
-      note.textContent = generation.note;
-      content.appendChild(note);
+    const card = document.querySelector(`#region-${generation.slug}`);
+    const mapLink = card.querySelector('.region-map-button');
+    if (typeof dialog.showModal === 'function') {
+      mapLink.setAttribute('aria-haspopup', 'dialog');
+      mapLink.setAttribute('aria-controls', 'region-map-dialog');
+      mapLink.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        openMap(generation);
+      });
     }
-    content.appendChild(browse);
-    card.append(mapButton, content);
-    grid.appendChild(card);
-    cards.set(generation.id, { count, games });
+    cards.set(generation.id, {
+      count: card.querySelector('.generation-count')
+    });
   });
   dialog.querySelector('[data-close-dialog]').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
@@ -80,7 +40,6 @@ export function initGenerationsPage(document, { client = api } = {}) {
       const data = await client.generation(generation.id);
       const card = cards.get(generation.id);
       card.count.textContent = `${data.pokemon_species.length} Pokémon introduced`;
-      card.games.textContent = data.version_groups.slice(0, 3).map(group => formatName(group.name)).join(' · ');
     }));
     const failed = results.some(result => result.status === 'rejected');
     showFeedback(document.querySelector('#page-feedback'), failed ? 'Some live Pokémon counts could not be loaded. Region maps and browsing links are still available.' : '', failed);

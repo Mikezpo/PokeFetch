@@ -1114,7 +1114,21 @@ img {
     gap: 24px;
 }
 
+.game-platform-note {
+    margin: 0 0 24px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.game-platform-note a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .generation-card {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
     overflow: hidden;
     border: 1px solid var(--border);
@@ -1126,6 +1140,7 @@ img {
 .region-map-button {
     position: relative;
     display: block;
+    flex-shrink: 0;
     width: 100%;
     padding: 0;
     border: 0;
@@ -1155,6 +1170,10 @@ img {
 }
 
 .generation-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-top: auto;
     padding: 24px;
 }
 
@@ -1178,14 +1197,56 @@ img {
 
 .generation-games {
     display: block;
-    margin-top: 5px;
-    color: var(--muted);
-    font-size: 11px;
+    margin-top: 20px;
 }
 
-.generation-card .text-link {
+.generation-games-heading {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.region-game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.region-game-name {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.console-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.console-tag {
+    display: inline-flex;
+    padding: 4px 7px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--background);
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.generation-card-body > .text-link {
     display: inline-block;
-    margin-top: 20px;
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 24px;
 }
 
 .generation-card .region-note {
